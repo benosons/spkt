@@ -1,0 +1,67 @@
+<div id="sidebar" class="sidebar responsive sidebar-fixed sidebar-scroll">
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				</script>
+
+				<ul id="nav-menu" class="nav nav-list">
+					<li id="menu-dashboard" class="">
+						<a href="dashboard">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> Dashboard </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					{% if role == 0 or role == 100 or role == 10 %}
+					<li id="menu-teknis" class="">
+						<a href="teknis">
+							<i class="menu-icon fa fa-folder"></i>
+							<span class="menu-text"> Persetujuan Teknis </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					{% endif %}
+					{% if role == 0 or role == 100 or role == 10 %}
+					<li id="menu-operasi" class="">
+						<a href="operasi">
+							<i class="menu-icon fa fa-folder"></i>
+							<span class="menu-text"> SLO </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					{% endif %}
+
+					{% if role == 100 or role == 10 %}
+          			<li id="menu-users" class="">
+						<a href="users">
+							<i class="menu-icon fa fa-users"></i>
+							<span class="menu-text"> User </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					{% endif %}
+
+					<!-- <li id="menu-puas" class="" hidden>
+						<a href="puas">
+							<i class="menu-icon fa fa-star"></i>
+							<span class="menu-text"> Survey Kepuasan </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li> -->
+
+				</ul><!-- /.nav-list -->
+
+				<!-- #section:basics/sidebar.layout.minimize -->
+				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+					<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+
+				<!-- /section:basics/sidebar.layout.minimize -->
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+				</script>
+			</div>
