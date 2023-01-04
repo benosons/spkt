@@ -34,10 +34,10 @@
 
 <input type="hidden" id="baseURL" value="{{baseURL}}">
 
-<body data-sidebar="dark" data-topbar="dark">
+<body data-sidebar="dark" data-topbar="dark" class="sidebar-enable vertical-collpsed" data-layout="horizontal">
 	<div id="layout-wrapper">
 		{% include "admin/survey/header.html" %}
-		{% include "admin/survey/sidebar.html" %}
+		<!-- {% include "admin/survey/sidebar.html" %} -->
 		<div class="main-content">
 			{% block content %} {% endblock %}
 			{% include "admin/modal/detailmodal.html" %}
