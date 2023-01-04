@@ -11,11 +11,27 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 04/01/2023 13:48:41
+ Date: 04/01/2023 15:44:41
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for ci_sessions
+-- ----------------------------
+DROP TABLE IF EXISTS `ci_sessions`;
+CREATE TABLE `ci_sessions`  (
+  `id` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `ip_address` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `data` blob NOT NULL,
+  INDEX `ci_sessions_timestamp`(`timestamp`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ci_sessions
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for users
@@ -40,7 +56,7 @@ CREATE TABLE `users`  (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (33, 'superadmin', 'super@admin.com', 'y$qfYYXc.GX7aadK9.LEAYdOBxill2gF4cnA5CXTu4SM4xqhIBoN4eW', '2020-11-08 02:10:27', 100, 'super admin', 1, 1, NULL, NULL);
-INSERT INTO `users` VALUES (34, 'admin', 'saya@admin.com', 'y$qfYYXc.GX7aadK9.LEAYdOBxill2gF4cnA5CXTu4SM4xqhIBoN4eW', '2020-11-08 02:10:27', 10, 'Admin', 1, NULL, 34, '2022-09-06 15:53:19');
+INSERT INTO `users` VALUES (34, 'admin', 'saya@admin.com', 'y$qfYYXc.GX7aadK9.LEAYdOBxill2gF4cnA5CXTu4SM4xqhIBoN4eW', '2020-11-08 02:10:27', 10, 'Admin', 1, 1, 34, '2022-09-06 15:53:19');
 INSERT INTO `users` VALUES (97, 'adalah', 'ada@gmail.com', 'y$d.EdZX/DCdQ/ow4jBUBMXeCiXB8LSo60qN8OTHri7vNYYYYHBUSXW', '2022-10-27 12:09:22', 0, 'adalah', 1, NULL, 34, '2022-10-27 12:09:42');
 INSERT INTO `users` VALUES (98, 'standar', 'standar@gmail.com', 'y$eV7uHINHIWEdspYEKXjf9.ShYJEYlwiEUCgo2dsKSZ02RPnT/G28K', '2022-10-27 15:19:46', 0, 'standar', 1, NULL, 34, '2022-10-27 15:19:54');
 INSERT INTO `users` VALUES (99, 'mandiri', 'mandiri@gmail.com', 'y$ln/Z3Wg.Xj5qLUYjO38.8uJatkAOa.k5yq/kF6NYpgBLzJbIqaM1m', '2022-10-29 23:16:21', 0, 'mandiri', 1, NULL, 34, '2022-10-29 23:16:39');
