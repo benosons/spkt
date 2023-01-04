@@ -82,4 +82,12 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
+	public function survey()
+	{
+
+		helper('form');
+		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/index.js';
+		return \Twig::instance()->display('admin/survey/index.html', $this->data);
+	}
+
 }

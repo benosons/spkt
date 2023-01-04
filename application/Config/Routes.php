@@ -78,62 +78,10 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->add('/', 'View::index');
-$routes->add('home', 'View::home');
-$routes->add('profil', 'View::profil');
-$routes->add('visimisi', 'View::visimisi');
-$routes->add('tugasfungsi', 'View::tugasfungsi');
-$routes->add('struktur', 'View::struktur');
-$routes->add('contact', 'View::contact');
-$routes->add('kegiatanUser', 'View::kegiatanUser');
-$routes->add('eco_concept', 'View::eco_concept');
-$routes->add('penapisan', 'View::penapisan');
-$routes->add('dasar_hukum', 'View::dasar_hukum');
-$routes->add('prosedur', 'View::prosedur');
-$routes->add('persyaratan', 'View::persyaratan');
 $routes->add('dashboard', 'View::dashboard');
 $routes->add('login', 'View::login');
 $routes->add('register', 'View::register');
-$routes->add('users', 'View::users');
-$routes->add('teknis', 'View::teknis');
-$routes->add('operasi', 'View::operasi');
-$routes->add('puas', 'View::puas');
-
-$routes->add('auth', 'Auth::auth');
-$routes->add('reg', 'Auth::reg');
-$routes->add('logout', 'Auth::logout');
-
-$routes->post('loadusers', 'Jsondata::loadusers');
-$routes->post('loadall', 'Jsondata::loadall');
-$routes->post('loadpermohonan', 'Jsondata::loadpermohonan');
-$routes->post('dashload', 'Jsondata::dashload');
-$routes->post('loadcount', 'Jsondata::loadcount');
-$routes->post('loadfile', 'Jsondata::loadfile');
-$routes->post('loadfilepermohonan', 'Jsondata::loadfilepermohonan');
-$routes->post('loadfilelapangan', 'Jsondata::loadfilelapangan');
-$routes->post('updatestatus', 'Jsondata::updatestatus');
-$routes->post('loadstatus', 'Jsondata::loadstatus');
-$routes->post('loadkepuasan', 'Jsondata::loadkepuasan');
-$routes->post('uploadfile', 'Jsondata::uploadfile');
-$routes->post('uploadfilelapangan', 'Jsondata::uploadfilelapangan');
-
-$routes->post('actionUsers', 'Jsondata::actionUsers');
-$routes->post('addUser', 'Jsondata::addUser');
-$routes->post('addpermohonan', 'Jsondata::addpermohonan');
-$routes->post('addkepuasan', 'Jsondata::addkepuasan');
-$routes->post('editfile', 'Jsondata::editfile');
-$routes->post('checkUser', 'Jsondata::checkUser');
-$routes->post('deletedata', 'Jsondata::deletedata');
-$routes->post('deletedataungahan', 'Jsondata::deletedataungahan');
-$routes->post('deletedatapermohonan', 'Jsondata::deletedatapermohonan');
-$routes->post('updatestatusmaster', 'Jsondata::updatestatusmaster');
-$routes->post('updatepermohonanparam', 'Jsondata::updatepermohonanparam');
-$routes->post('updatepass', 'Jsondata::updatepass');
-$routes->post('reuploadfile', 'Jsondata::reuploadfile');
-$routes->post('okdong', 'Jsondata::okdong');
-$routes->post('checklog', 'Jsondata::checklog');
-
-
-
+$routes->add('survey', 'View::survey');
 
 
 /**

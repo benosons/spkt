@@ -1,0 +1,455 @@
+{% extends "admin/layout.html" %} {% block content %}
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18 text-center">SURVEY KEPUASAN MASYARAKAT SENTRA PELAYANAN KEPOLISIAN TERPADU POLRES CIMAHI</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Silahkan Masukan Identitas</h4>
+
+                        <form>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingnameInput" placeholder="NIK E-KTP/ Nomor Telepon">
+                                <label for="floatingnameInput">NIK E-KTP/ Nomor Telepon</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                    <option selected>Pilih...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                                <label for="floatingSelectGrid">Jenis Kelamin</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                    <option selected>Pilih...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                                <label for="floatingSelectGrid">Pendidikan</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                    <option selected>Pilih...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                                <label for="floatingSelectGrid">Pekerjaan</label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end col -->
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">1</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang kesesuaian persyaratan pelayanan dengen jenis pelayanannya?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end col -->
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">2</p>
+                        <h4 class="card-title mb-4">Bagaimana pemahaman saudara tentang kemudahan prosedur pelayanan di unit ini?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Mudah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Mudah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Mudah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Mudah
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">3</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang kecepatan waktu dalam memberikan pelayanan?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Cepat
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Cepat
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Cepat
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Cepat
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">4</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Sesuai
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">5</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang kompetensi/ kemampuan petugas dalam pelayanan?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Kompeten
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Kompeten
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kompeten
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Kompeten
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">6</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang perilaku petugas dalam pelayanan terkait kesopanan dan keramahan?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak Sopan dan Ramah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Kurang Sopan dan Ramah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sopan dan Ramah
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Sopan dan Ramah
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">7</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang penanganan pengaduan layanan ini?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Tidak ada
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Ada tetapi tidak berfungsi
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Berfungsi kurang maksimal
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Dikelola dengan baik
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="isnumber">8</p>
+                        <h4 class="card-title mb-4">Bagaimana pendapat saudara tentang kualitas sarana dan prasaranan pelayanan?</h4>
+
+                        <form>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Buruk
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Cukup
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Baik
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formRadios">
+                                    <label class="form-check-label" for="formRadios2">
+                                        Sangat Baik
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Silahkan masukan saran/ kritik anda.</h4>
+                        <h4 class="card-title mb-4">Terima kasih</h4>
+
+                        <form>
+                            <div class="mb-3">
+                                <textarea id="textarea" class="form-control" maxlength="225" rows="7" placeholder=""></textarea>
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn btn-primary btn-lg waves-effect waves-light">Kirim</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+
+        </div>
+        <!-- end row -->
+        
+    </div> <!-- container-fluid -->
+</div>
+
+{% endblock %}
