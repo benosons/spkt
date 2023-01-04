@@ -82,26 +82,4 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
-	public function users()
-	{
-		if ($this->logged) {
-			helper('form');
-			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/users/users-index.js';
-			return \Twig::instance()->display('admin/users/index.html', $this->data);
-		} else {
-			return redirect('home');
-		}
-	}
-
-	public function userprofile()
-	{
-		if ($this->logged) {
-			helper('form');
-			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/users/profile.js';
-			return \Twig::instance()->display('admin/users/profile.html', $this->data);
-		} else {
-			return redirect('home');
-		}
-	}
-
 }
