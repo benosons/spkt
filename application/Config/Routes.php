@@ -82,6 +82,7 @@ $routes->add('dashboard', 'View::dashboard');
 $routes->add('login', 'View::login');
 $routes->add('register', 'View::register');
 $routes->add('survey', 'View::survey');
+$routes->add('kepuasan', 'View::kepuasan');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('logout', 'Auth::logout');

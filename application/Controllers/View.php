@@ -90,4 +90,12 @@ class View extends \CodeIgniter\Controller
 		return \Twig::instance()->display('admin/survey/index.html', $this->data);
 	}
 
+	public function kepuasan()
+	{
+
+		helper('form');
+		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/kepuasan.js';
+		return \Twig::instance()->display('admin/menu/kepuasan.html', $this->data);
+	}
+
 }
