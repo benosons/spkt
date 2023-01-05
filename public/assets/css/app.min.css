@@ -3694,7 +3694,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
   content: "\f06d1";
 }
 .auth-full-bg {
-  background-color: rgba(85, 110, 230, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

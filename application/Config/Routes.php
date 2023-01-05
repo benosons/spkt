@@ -88,6 +88,7 @@ $routes->add('auth', 'Auth::auth');
 $routes->add('logout', 'Auth::logout');
 
 $routes->post('submitsurvey', 'Jsondata::submitsurvey');
+$routes->post('loadsurvey', 'Jsondata::loadsurvey');
 
 /**
  * --------------------------------------------------------------------

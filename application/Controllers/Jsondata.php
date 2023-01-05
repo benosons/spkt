@@ -67,4 +67,43 @@ class Jsondata extends \CodeIgniter\Controller
 			}
 	
 		}
+
+		public function loadsurvey()
+		{
+			try
+			{
+					$request  	= $this->request;
+					$id		 	= $request->getVar('id');
+					$role 		= $this->data['role'];
+					$userid		= $this->data['userid'];
+	
+					$model 	  = new \App\Models\DataModel();
+
+	
+					$fulldata = [];
+					$data = $model->getsurvey();
+					
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 	   => $data
+						];
+					}else{
+						$response = [
+							'status'   => 'gagal',
+							'code'     => '0',
+							'data'     => 'tidak ada data',
+						];
+					}
+	
+					header('Content-Type: application/json');
+					echo json_encode($response);
+					exit;
+				}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+		}
 }

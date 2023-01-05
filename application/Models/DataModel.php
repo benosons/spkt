@@ -9,4 +9,13 @@ class DataModel extends Model{
         return  $this->db->table($table)->insert($data);
     }
 
+    public function getsurvey()
+    {
+        $builder = $this->db->table('data_survey');
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
 }
