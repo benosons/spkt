@@ -21,8 +21,50 @@ class Jsondata extends \CodeIgniter\Controller
 			'userid' => $this->session->get('user_id'),
 			'username' => $this->session->get('user_name'),
 			'role' => $this->session->get('user_role'),
-			'nip' => $this->session->get('nip'),
 		);
-  }
+	}
 
+		public function submitsurvey(){
+			try
+			{
+			$request  = $this->request;
+			$table 	  = $request->getVar('table');
+
+			$model 	  = new \App\Models\DataModel();
+	
+			$data = [];
+			$data['nomor']			= $request->getVar('nomor');
+			$data['jenis_kelamin']	= $request->getVar('jenis_kelamin');
+			$data['pendidikan']		= $request->getVar('pendidikan');
+			$data['pekerjaan']		= $request->getVar('pekerjaan');
+			$data['kesesuaian']		= $request->getVar('kesesuaian');
+			$data['kemudahan']		= $request->getVar('kemudahan');
+			$data['kecepatan']		= $request->getVar('kecepatan');
+			$data['pelayanan']		= $request->getVar('pelayanan');
+			$data['kompetensi']		= $request->getVar('kompetensi');
+			$data['perilaku']		= $request->getVar('perilaku');
+			$data['penanganan']		= $request->getVar('penanganan');
+			$data['sarana']			= $request->getVar('sarana');
+			$data['saran_kritik']	= $request->getVar('saran_kritik');
+				
+			$data['create_date'] 	= $this->now;
+			$data['update_date'] 	= $this->now;
+			$res = $model->saveData($table, $data);
+			$id  = $model->insertID();
+	
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+	
+		}
 }

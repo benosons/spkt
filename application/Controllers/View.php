@@ -86,7 +86,7 @@ class View extends \CodeIgniter\Controller
 	{
 
 		helper('form');
-		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/index.js';
+		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/survey.js';
 		return \Twig::instance()->display('admin/survey/index.html', $this->data);
 	}
 
