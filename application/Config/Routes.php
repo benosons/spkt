@@ -83,6 +83,9 @@ $routes->add('login', 'View::login');
 $routes->add('register', 'View::register');
 $routes->add('survey', 'View::survey');
 
+$routes->add('auth', 'Auth::auth');
+$routes->add('logout', 'Auth::logout');
+
 $routes->post('submitsurvey', 'Jsondata::submitsurvey');
 
 /**
