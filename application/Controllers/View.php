@@ -92,10 +92,13 @@ class View extends \CodeIgniter\Controller
 
 	public function kepuasan()
 	{
-
-		helper('form');
-		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/kepuasan.js';
-		return \Twig::instance()->display('admin/menu/kepuasan.html', $this->data);
+		if ($this->logged) {
+			helper('form');
+			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/kepuasan.js';
+			return \Twig::instance()->display('admin/menu/kepuasan.html', $this->data);
+		} else {
+			return redirect('login');
+		}
 	}
 
 }
