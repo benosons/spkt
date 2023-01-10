@@ -1,96 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
 
-<html lang="en-us" class="no-js">
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>404 Error Page | Skote - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-	<head>
-		<meta charset="utf-8">
-		<title>404 Flat Able - Premium Admin Template by Phoenixcoded</title>
-		<meta name="description" content="Flat able 404 Error page design">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="Phoenixcoded">
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="public/assets/404/img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="public/assets/404/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="public/assets/404/css/particles.css" />
-	</head>
+        <!-- Bootstrap Css -->
+        <link href="public/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="public/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-	<body>
+    </head>
 
-        <div class="" id="particles-js"></div>
+    <body>
 
-        <!-- Your logo on the top left -->
-        <a href="home" class="logo-link" title="back home">
-
-            <img src="public/assets/404/img/logo.png" class="logo" alt="Company's logo" />
-
-        </a>
-
-        <div class="content">
-
-            <div class="content-box">
-
-                <div class="big-content">
-
-                    <!-- Main squares for the content logo in the background -->
-                    <div class="list-square">
-                        <span class="square"></span>
-                        <span class="square"></span>
-                        <span class="square"></span>
+        <div class="account-pages my-5 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-5">
+                            <h1 class="display-2 fw-medium">4<i class="bx bx-buoy bx-spin text-primary display-3"></i>4</h1>
+                            <h4 class="text-uppercase">Maaf, Halaman Tidak Ditemukan</h4>
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-primary waves-effect waves-light" href="dashboard">Kembali ke Dashboard</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Main lines for the content logo in the background -->
-                    <div class="list-line">
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                    </div>
-
-                    <!-- The animated searching tool -->
-                    <i class="fa fa-search" aria-hidden="true"></i>
-
-                    <!-- div clearing the float -->
-                    <div class="clear"></div>
-
                 </div>
-
-                <!-- Your text -->
-                <h1>Oops! Error 404 not found.</h1>
-
-                <p>The page you were looking for doesn't exist.<br>
-                    We think the page may have moved.</p>
-
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-xl-6">
+                        <div>
+                            <img src="assets/images/error-img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
 
-        <footer class="light">
+        <!-- JAVASCRIPT -->
+        <script src="public/assets/libs/jquery/jquery.min.js"></script>
+        <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="public/assets/libs/node-waves/waves.min.js"></script>
 
-            <ul>
-                <li><a href="index-image.html#">Home</a></li>
-
-                <li><a href="index-image.html#">Search</a></li>
-
-                <li><a href="index-image.html#">Help</a></li>
-
-                <li><a href="index-image.html#">Trust & Safety</a></li>
-
-                <li><a href="index-image.html#">Sitemap</a></li>
-
-                <li><a href="index-image.html#"><i class="fa fa-facebook"></i></a></li>
-
-                <li><a href="index-image.html#"><i class="fa fa-twitter"></i></a></li>
-            </ul>
-
-        </footer>
-        <script src="public/assets/404/js/jquery.min.js"></script>
-        <script src="public/assets/404/js/bootstrap.min.js"></script>
-				<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
-				<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-        <script src="public/assets/404/js/particles.js"></script>
+        <script src="public/assets/js/app.js"></script>
 
     </body>
-
 </html>

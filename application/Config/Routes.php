@@ -64,10 +64,11 @@ $routes->setDefaultController('View');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// $routes->set404Override(function() {
-// 	echo view('404');die;
-// });
-$routes->setAutoRoute(true);
+
+$routes->set404Override(function() {
+	echo view('404');die;
+});
+$routes->setAutoRoute(false);
 
 /**
  * --------------------------------------------------------------------
