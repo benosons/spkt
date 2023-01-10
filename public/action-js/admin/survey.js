@@ -1,6 +1,6 @@
 console.log('You are running jQuery version: ' + $.fn.jquery);
 $(document).ready(function(){
-
+  window.emots = 0
   $('#kirim_survey').on('click', function () {
     bootbox.confirm({
       message: "Apakah data yg anda masukan sudah <b>sesuai</b> ?",
@@ -30,6 +30,7 @@ $(document).ready(function(){
         var penanganan    = $('[name="penanganan"]:checked').val()
         var sarana        = $('[name="sarana"]:checked').val()
         var saran_kritik  = $('#saran_kritik').val()
+        var emots  = window.emots
     
         var formData = new FormData();
         formData.append('table', 'data_survey');
@@ -37,15 +38,16 @@ $(document).ready(function(){
         formData.append('jenis_kelamin', jenis_kelamin);
         formData.append('pendidikan', pendidikan);
         formData.append('pekerjaan', pekerjaan);
-        formData.append('kesesuaian', kesesuaian);
-        formData.append('kemudahan', kemudahan);
-        formData.append('kecepatan', kecepatan);
-        formData.append('pelayanan', pelayanan);
-        formData.append('kompetensi', kompetensi);
-        formData.append('perilaku', perilaku);
-        formData.append('penanganan', penanganan);
-        formData.append('sarana', sarana);
+        // formData.append('kesesuaian', kesesuaian);
+        // formData.append('kemudahan', kemudahan);
+        // formData.append('kecepatan', kecepatan);
+        // formData.append('pelayanan', pelayanan);
+        // formData.append('kompetensi', kompetensi);
+        // formData.append('perilaku', perilaku);
+        // formData.append('penanganan', penanganan);
+        // formData.append('sarana', sarana);
         formData.append('saran_kritik', saran_kritik);
+        formData.append('emot', emots);
 
         save(formData)
         }
@@ -53,6 +55,8 @@ $(document).ready(function(){
     })
 
   })
+
+  
 });
 
 function save(formData){
@@ -89,4 +93,31 @@ function save(formData){
       }
     });
 };
+
+function emot(param, kode){
+
+  $('.emot').find("i").removeClass('text-success')
+  $('.emot').find("i").removeClass('text-info')
+  $('.emot').find("i").removeClass('text-danger')
+  $('.emot').find("i").addClass('text-warning')
+
+  if(kode == 1){
+    $(param).find("i").removeClass('text-warning')
+    $(param).find("i").addClass('bx bx-smile text-success')
+    window.emots = 1
+  }
+
+  if(kode == 2){
+    $(param).find("i").removeClass('text-warning')
+    $(param).find("i").addClass('bx bx-meh text-info')
+    window.emots = 2
+  }
+
+  if(kode == 3){
+    $(param).find("i").removeClass('text-warning')
+    $(param).find("i").addClass('bx bx-sad text-danger')
+    window.emots = 3
+  }
+  
+}
 

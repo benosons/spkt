@@ -37,15 +37,16 @@ class Jsondata extends \CodeIgniter\Controller
 			$data['jenis_kelamin']	= $request->getVar('jenis_kelamin');
 			$data['pendidikan']		= $request->getVar('pendidikan');
 			$data['pekerjaan']		= $request->getVar('pekerjaan');
-			$data['kesesuaian']		= $request->getVar('kesesuaian');
-			$data['kemudahan']		= $request->getVar('kemudahan');
-			$data['kecepatan']		= $request->getVar('kecepatan');
-			$data['pelayanan']		= $request->getVar('pelayanan');
-			$data['kompetensi']		= $request->getVar('kompetensi');
-			$data['perilaku']		= $request->getVar('perilaku');
-			$data['penanganan']		= $request->getVar('penanganan');
-			$data['sarana']			= $request->getVar('sarana');
+			// $data['kesesuaian']		= $request->getVar('kesesuaian');
+			// $data['kemudahan']		= $request->getVar('kemudahan');
+			// $data['kecepatan']		= $request->getVar('kecepatan');
+			// $data['pelayanan']		= $request->getVar('pelayanan');
+			// $data['kompetensi']		= $request->getVar('kompetensi');
+			// $data['perilaku']		= $request->getVar('perilaku');
+			// $data['penanganan']		= $request->getVar('penanganan');
+			// $data['sarana']			= $request->getVar('sarana');
 			$data['saran_kritik']	= $request->getVar('saran_kritik');
+			$data['emot']			= $request->getVar('emot');
 				
 			$data['create_date'] 	= $this->now;
 			$data['update_date'] 	= $this->now;

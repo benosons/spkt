@@ -87,7 +87,7 @@ class View extends \CodeIgniter\Controller
 
 		helper('form');
 		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/survey.js';
-		return \Twig::instance()->display('admin/survey/index.html', $this->data);
+		return \Twig::instance()->display('admin/survey/index1.html', $this->data);
 	}
 
 	public function kepuasan()
