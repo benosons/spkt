@@ -90,12 +90,32 @@ class View extends \CodeIgniter\Controller
 		return \Twig::instance()->display('admin/survey/index1.html', $this->data);
 	}
 
+	public function tamu()
+	{
+
+		helper('form');
+		
+		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/tamu.js';
+		return \Twig::instance()->display('admin/survey/isibukutamu.html', $this->data);
+	}
+
 	public function kepuasan()
 	{
 		if ($this->logged) {
 			helper('form');
 			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/kepuasan.js';
 			return \Twig::instance()->display('admin/menu/kepuasan.html', $this->data);
+		} else {
+			return redirect('login');
+		}
+	}
+
+	public function bukutamu()
+	{
+		if ($this->logged) {
+			helper('form');
+			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/bukutamu.js';
+			return \Twig::instance()->display('admin/menu/bukutamu.html', $this->data);
 		} else {
 			return redirect('login');
 		}
