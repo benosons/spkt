@@ -112,30 +112,12 @@ function save(formData){
     });
 };
 
-function emot(param, kode){
-
-  $('.emot').find("i").removeClass('text-success')
-  $('.emot').find("i").removeClass('text-info')
-  $('.emot').find("i").removeClass('text-danger')
-  $('.emot').find("i").addClass('text-warning')
-
-  if(kode == 1){
-    $(param).find("i").removeClass('text-warning')
-    $(param).find("i").addClass('bx bx-smile text-success')
-    window.emots = 1
-  }
-
-  if(kode == 2){
-    $(param).find("i").removeClass('text-warning')
-    $(param).find("i").addClass('bx bx-meh text-info')
-    window.emots = 2
-  }
-
-  if(kode == 3){
-    $(param).find("i").removeClass('text-warning')
-    $(param).find("i").addClass('bx bx-sad text-danger')
-    window.emots = 3
-  }
-  
+function onlyNumberKey(evt) {
+              
+  // Only ASCII character in that range allowed
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+      return false;
+  return true;
 }
 

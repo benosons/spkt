@@ -25,6 +25,8 @@ class View extends \CodeIgniter\Controller
 			'role' => $this->session->get('user_role'),
 			'survey' => $this->session->get('survey'),
 		);
+
+		
 	}
 
 	public function index()
