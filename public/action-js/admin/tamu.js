@@ -95,17 +95,13 @@ function save(formData){
           message: 'Berhasil Terkirim!',
           buttons: {
             ok: {
-                  label: '<i class="fa fa-check"></i> ok',
-                  className: 'btn-success btn-xs'
+                  label: '<i class="fa fa-power-off"></i> keluar',
+                  className: 'btn-danger btn-xs'
               },
           },
           callback: function (result) {
             localStorage.setItem("nopelet", window.encrypted, 86400000);
-            setTimeout(() => {
-              $('.bootbox').removeAttr('style');
-              $('.modal-backdrop').remove();
-            }, 1000);
-            location.reload()
+            window.close();
           }
       });
         
