@@ -91,25 +91,25 @@
 
                         <div class="mb-3">
                             <label for="formrow-firstname-input" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="formrow-firstname-input" placeholder="">
+                            <input type="text" class="form-control" id="nama" placeholder="">
                         </div>
                         <div class="mb-3">
                             <label for="formrow-firstname-input" class="form-label">Nomor Telepon</label>
-                            <input type="text" class="form-control" id="formrow-firstname-input" placeholder="">
+                            <input type="text" class="form-control" id="telp" placeholder="">
                         </div>
                         <div class="mb-3">
                             <label class="d-block mb-3">Jenis Kelamin :</label>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1" value="L">
                                 <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="outer-group[0][inlineRadioOptions]" id="inlineRadio2" value="option2">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="P">
                                 <label class="form-check-label" for="inlineRadio2">Perempuan</label>
                             </div>                                                          
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="pendidikan" class="form-label">Pendidikan</label>
                             <select id="pendidikan" class="form-select" >
                                 <option>Pilih...</option>
@@ -132,17 +132,24 @@
                                 <option value="WIRAUSAHA">WIRAUSAHA</option>
                                 <option value="LAINNYA">LAINNYA</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <div>
                                 <label for="ektp" class="form-label">Foto E-KTP</label>
-                                <input class="form-control" id="ektp" type="file">
+                                <input class="form-control" id="ektp" type="file" accept="image/*">
+                            </div>
+                            <div class="mb-0">
+                                <img class="rounded me-2"  width="100%" id="previewKtp" >
                             </div>
                         </div>
+                        
                         <div class="mb-3">
                             <div>
                                 <label for="ektp" class="form-label">Foto Selfie</label>
                                 <input class="form-control" id="selfie" type="file">
+                            </div>
+                            <div class="mb-0">
+                                <img class="rounded me-2"  width="100%" id="previewSelfie" >
                             </div>
                         </div>
                         <div class="mb-3">

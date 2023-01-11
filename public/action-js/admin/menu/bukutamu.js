@@ -8,12 +8,12 @@ function load(){
     $.ajax({
         type: 'post',
         dataType: 'json',
-        url: 'loadsurvey',
+        url: 'loadtamu',
         success: function(result){
             let data = result.data;
             let code = result.code;
             if(code){
-                var dt = $('#datasurvey').DataTable({
+                var dt = $('#datatamu').DataTable({
                     destroy: true,
                     paging: true,
                     lengthChange: true,
@@ -26,11 +26,11 @@ function load(){
                     aaData: result.data,
                     aoColumns: [
                         { 'mDataProp': 'id', 'width':'10'},
-                        { 'mDataProp': 'nomor'},
+                        { 'mDataProp': 'nama'},
+                        { 'mDataProp': 'telp', 'width':'10'},
                         { 'mDataProp': 'jenis_kelamin', 'width':'10'},
-                        { 'mDataProp': 'pendidikan'},
-                        { 'mDataProp': 'pekerjaan'},
-                        { 'mDataProp': 'emot', 'width':'10', 'class':'text-center'},
+                        { 'mDataProp': 'tujuan'},
+                        { 'mDataProp': 'tujuan'},
                         { 'mDataProp': 'create_date'},
                     ],
                     order: [[0, 'ASC']],
@@ -40,21 +40,19 @@ function load(){
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
-                                    
-                                    let icon = ''
-                                    switch (data) {
-                                        case '1':
-                                            icon = '<i class="bx bx-smile text-success font-size-24""></i>'
-                                            break;
-                                        case '2':
-                                            icon = '<i class="bx bx-meh text-info font-size-24"></i>'
-                                            break;
-                                        case '3':
-                                            icon = '<i class="bx bx-sad text-danger font-size-24""></i>'
-                                            break;
-                                    }
-                                    console.log(icon);
-                                    return icon
+                                    let el = `<div class="popup-gallery d-flex flex-wrap">
+                                                    <a href="#" title="Project 1">
+                                                        <div class="img-fluid">
+                                                            <img src="${row.ektp}" alt="" width="120">
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" title="Project 2">
+                                                        <div class="img-fluid">
+                                                            <img src="${row.selfie}" alt="" width="120">
+                                                        </div>
+                                                    </a>
+                                                </div>`
+                                    return el
                                 }
                                 return data;
                             },
@@ -81,7 +79,7 @@ function load(){
                     }
                 });
             }else{
-                 $("#datasurvey").DataTable()
+                 $("#datatamu").DataTable()
             }
         }
     })

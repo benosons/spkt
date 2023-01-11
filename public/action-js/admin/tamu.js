@@ -1,7 +1,11 @@
 console.log('You are running jQuery version: ' + $.fn.jquery);
 $(document).ready(function(){
   window.emots = 0
-  $('#kirim_survey').on('click', function () {
+  window.ektp = ''
+  window.selfie = ''
+  window.encrypted = ''
+  
+  $('#kirim_daftar').on('click', function () {
     bootbox.confirm({
       message: "Apakah data yg anda masukan sudah <b>sesuai</b> ?",
       buttons: {
@@ -16,39 +20,26 @@ $(document).ready(function(){
     },
     callback : function(result) {
     if(result) {
-        var nomor         = $('#nomor').val()
-        var jenis_kelamin = $('#jenis_kelamin').val()
-        var pendidikan    = $('#pendidikan').val()
-        var pekerjaan     = $('#pekerjaan').val()
-    
-        var kesesuaian    = $('[name="kesesuaian"]:checked').val()
-        var kemudahan     = $('[name="kemudahan"]:checked').val()
-        var kecepatan     = $('[name="kecepatan"]:checked').val()
-        var pelayanan     = $('[name="pelayanan"]:checked').val()
-        var kompetensi    = $('[name="kompetensi"]:checked').val()
-        var perilaku      = $('[name="perilaku"]:checked').val()
-        var penanganan    = $('[name="penanganan"]:checked').val()
-        var sarana        = $('[name="sarana"]:checked').val()
-        var saran_kritik  = $('#saran_kritik').val()
-        var emots  = window.emots
+        var nama          = $('#nama').val()
+        var telp          = $('#telp').val()
+        var jenis_kelamin = $('[name="jenis_kelamin"]:checked').val()
+        var ektp          = window.ektp
+        var selfie        = window.selfie
+        var tujuan        = $('#tujuan').val()
     
         var formData = new FormData();
-        formData.append('table', 'data_survey');
-        formData.append('nomor', nomor);
+        formData.append('table', 'data_tamu');
+        formData.append('nama', nama);
+        formData.append('telp', telp);
         formData.append('jenis_kelamin', jenis_kelamin);
-        formData.append('pendidikan', pendidikan);
-        formData.append('pekerjaan', pekerjaan);
-        // formData.append('kesesuaian', kesesuaian);
-        // formData.append('kemudahan', kemudahan);
-        // formData.append('kecepatan', kecepatan);
-        // formData.append('pelayanan', pelayanan);
-        // formData.append('kompetensi', kompetensi);
-        // formData.append('perilaku', perilaku);
-        // formData.append('penanganan', penanganan);
-        // formData.append('sarana', sarana);
-        formData.append('saran_kritik', saran_kritik);
-        formData.append('emot', emots);
-
+        formData.append('ektp', ektp);
+        formData.append('selfie', selfie);
+        formData.append('tujuan', tujuan);
+        window.encrypted = CryptoJS.AES.encrypt(telp, "benosons");
+        
+        // var decrypted = CryptoJS.AES.decrypt(encrypted, "benosons");
+        // decrypted.toString(CryptoJS.enc.Utf8)
+        
         save(formData)
         }
       }
@@ -56,7 +47,33 @@ $(document).ready(function(){
 
   })
 
-  
+  $('#ektp').change(function(){
+    const file = this.files[0];
+    
+    if (file){
+      let reader = new FileReader();
+      reader.onload = function(event){
+        // console.log(event.target.result);
+        window.ektp = event.target.result
+        $('#previewKtp').attr('src', event.target.result);
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
+  $('#selfie').change(function(){
+    const file = this.files[0];
+    
+    if (file){
+      let reader = new FileReader();
+      reader.onload = function(event){
+        window.selfie = event.target.result
+        $('#previewSelfie').attr('src', event.target.result);
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
 });
 
 function save(formData){
@@ -70,7 +87,7 @@ function save(formData){
       type: 'post',
       processData: false,
       contentType: false,
-      url: 'submitsurvey',
+      url: 'submittamu',
       data : formData,
       success: function(result){
 
@@ -83,6 +100,7 @@ function save(formData){
               },
           },
           callback: function (result) {
+            localStorage.setItem("nopelet", window.encrypted, 86400000);
             $('.bootbox').remove();
             $('.modal-dialog').remove();
             $('.modal-backdrop').remove();

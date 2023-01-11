@@ -18,4 +18,13 @@ class DataModel extends Model{
         return  $query->getResult();
     }
 
+    public function gettamu()
+    {
+        $builder = $this->db->table('data_tamu');
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
 }

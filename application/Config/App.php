@@ -161,7 +161,7 @@ class App extends BaseConfig
 	*/
 	public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
 	public $sessionCookieName = 'ci_session';
-	public $sessionExpiration = 7200;
+	public $sessionExpiration = 36000;
 	public $sessionSavePath = NULL;
 	public $sessionMatchIP = FALSE;
 	public $sessionTimeToUpdate = 300;

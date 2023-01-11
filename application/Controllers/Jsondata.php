@@ -69,6 +69,43 @@ class Jsondata extends \CodeIgniter\Controller
 	
 		}
 
+		public function submittamu(){
+			try
+			{
+			$request  = $this->request;
+			$table 	  = $request->getVar('table');
+
+			$model 	  = new \App\Models\DataModel();
+	
+			$data = [];
+			$data['nama']			= $request->getVar('nama');
+			$data['telp']			= $request->getVar('telp');
+			$data['jenis_kelamin']	= $request->getVar('jenis_kelamin');
+			$data['ektp']			= $request->getVar('ektp');
+			$data['selfie']			= $request->getVar('selfie');
+			$data['tujuan']			= $request->getVar('tujuan');
+				
+			$data['create_date'] 	= $this->now;
+			$data['update_date'] 	= $this->now;
+			$res = $model->saveData($table, $data);
+			$id  = $model->insertID();
+	
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+	
+		}
+
 		public function loadsurvey()
 		{
 			try
@@ -83,6 +120,45 @@ class Jsondata extends \CodeIgniter\Controller
 	
 					$fulldata = [];
 					$data = $model->getsurvey();
+					
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 	   => $data
+						];
+					}else{
+						$response = [
+							'status'   => 'gagal',
+							'code'     => '0',
+							'data'     => 'tidak ada data',
+						];
+					}
+	
+					header('Content-Type: application/json');
+					echo json_encode($response);
+					exit;
+				}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+		}
+
+		public function loadtamu()
+		{
+			try
+			{
+					$request  	= $this->request;
+					$id		 	= $request->getVar('id');
+					$role 		= $this->data['role'];
+					$userid		= $this->data['userid'];
+	
+					$model 	  = new \App\Models\DataModel();
+
+	
+					$fulldata = [];
+					$data = $model->gettamu();
 					
 					if($data){
 						$response = [

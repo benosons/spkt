@@ -1,5 +1,9 @@
 {% extends "admin/layout.html" %} {% block content %}
-
+<style>
+    .img-fluid img {
+        filter: blur(3px);
+    }
+</style>
 <div class="page-content">
     <div class="container-fluid">
 
@@ -27,15 +31,15 @@
                     <div class="card-body">
 
                         
-                        <table id="datasurvey" class="table table-bordered dt-responsive  nowrap w-100">
+                        <table id="datatamu" class="table table-bordered dt-responsive  nowrap w-100">
                             <thead class="table-light">
                             <tr>
                                 <th>#No</th>
+                                <th>Nama</th>
                                 <th>No. Telepon</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Pendidikan</th>
-                                <th>Pekerjaan</th>
-                                <th>Kepuasan</th>
+                                <th>Tujan</th>
+                                <th>Foto</th>
                                 <th>Tanggal</th>
                             </tr>
                             </thead>
