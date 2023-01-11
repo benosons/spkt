@@ -54,7 +54,7 @@ $(document).ready(function(){
       let reader = new FileReader();
       reader.onload = function(event){
         // console.log(event.target.result);
-        window.ektp = event.target.result
+        window.ektp = file
         $('#previewKtp').attr('src', event.target.result);
       }
       reader.readAsDataURL(file);
@@ -67,7 +67,7 @@ $(document).ready(function(){
     if (file){
       let reader = new FileReader();
       reader.onload = function(event){
-        window.selfie = event.target.result
+        window.selfie = file
         $('#previewSelfie').attr('src', event.target.result);
       }
       reader.readAsDataURL(file);

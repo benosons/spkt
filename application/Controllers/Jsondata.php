@@ -23,10 +23,6 @@ class Jsondata extends \CodeIgniter\Controller
 			'role' => $this->session->get('user_role'),
 		);
 
-		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
-		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-		$this->output->set_header('Pragma: no-cache');
-		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 	}
 
 		public function submitsurvey(){
@@ -79,6 +75,13 @@ class Jsondata extends \CodeIgniter\Controller
 			{
 			$request  = $this->request;
 			$table 	  = $request->getVar('table');
+			
+			foreach ($_FILES as $key => $img) {
+				$path = $img["tmp_name"];
+				$type = $img['type'];
+				$data = file_get_contents($path);
+				$base64[$key] = 'data:image/' . $type . ';base64,' . base64_encode($data);
+			}			
 
 			$model 	  = new \App\Models\DataModel();
 	
@@ -86,8 +89,8 @@ class Jsondata extends \CodeIgniter\Controller
 			$data['nama']			= $request->getVar('nama');
 			$data['telp']			= $request->getVar('telp');
 			$data['jenis_kelamin']	= $request->getVar('jenis_kelamin');
-			$data['ektp']			= $request->getVar('ektp');
-			$data['selfie']			= $request->getVar('selfie');
+			$data['ektp']			= $base64['ektp'];
+			$data['selfie']			= $base64['selfie'];
 			$data['tujuan']			= $request->getVar('tujuan');
 				
 			$data['create_date'] 	= $this->now;
