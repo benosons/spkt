@@ -6,8 +6,9 @@
         <div class="row">
             
             <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h3 class="mb-sm-0 font-size-18 text-center fw-bolder">INDEX KEPUASAN MASYARAKAT SENTRA PELAYANAN KEPOLISIAN TERPADU</h3>
+                <div class="align-items-center">
+                    <h3 class="font-size-18 text-center fw-bolder">INDEKS KEPUASAN MASYARAKAT </h3>
+                    <h3 class="font-size-18 text-center fw-bolder">SENTRA PELAYANAN KEPOLISIAN TERPADU</h3>
                 </div>
             </div>
         </div>
@@ -19,31 +20,31 @@
                     <div class="bg-dark">
                         <div class="row">
                             
-                            <!-- <div class="col-12">
-                                <img src="{{baseURL}}/assets/img/presisi.png" alt="" class="img-fluid">
-                            </div> -->
                             <div class="col-12">
-                                <h6 class="text-light p-4 text-center">
-                                    "KEPUASAN ANDA ADALAH KOMITMEN KAMI"
-                                </h6>
+                                <img src="{{baseURL}}/assets/img/presisi.png" alt="" class="img-fluid" height="22">
+                            </div>
+                            <div class="col-12">
+                                <h5 class="text-light text-center">
+                                    Kepuasan Anda Adalah Komitmen Kami
+                                </h5>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body pt-0">
+                    <div class="card-body pt-0 mb-0">
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="table table-borderless mb-0">
                                     <tbody>
                                         <tr>
-                                            <td><img src="{{baseURL}}/assets/img/kapolres.jpg" alt="" class="img-thumbnail rounded"></td>
+                                            <td style="padding: 0;"><img src="{{baseURL}}/assets/img/kapolres.jpg" alt="" class="img-thumbnail rounded" style="background-color: white;border: 1px solid #fff;"></td>
                                             <!-- <td><img src="{{baseURL}}/assets/img/kapolres.jpg" alt="" class="img-thumbnail rounded"></td> -->
                                         </tr>
                                         <tr>
-                                            <td class="text-center">AKBP ALDI SUBARTONO, S.H., S.I.K., M.H., CPHR</td>
+                                            <td class="text-center" style="padding: 0;">AKBP ALDI SUBARTONO, S.H., S.I.K., M.H., CPHR</td>
                                             <!-- <td class="text-center">AKBP ALDI SUBARTONO, S.H., S.I.K., M.H., CPHR</td> -->
                                         </tr>
                                         <tr>
-                                            <td class="text-center mb-sm-0 font-size-12"><b>KAPOLRES CIMAHI</b></td>
+                                            <td class="text-center mb-sm-0 font-size-12" style="padding: 0;"><b>KAPOLRES CIMAHI</b></td>
                                             <!-- <td class="text-center mb-sm-0 font-size-12"><b>WAKAPOLRES CIMAHI</b></td> -->
                                         </tr>
                                         
@@ -76,21 +77,25 @@
             <div class="col-xl-12">
                 <div class="card border border-warning">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Silahkan Masukan Identitas</h4>
+                        <h4 class="card-title mb-2">Silahkan Masukan Identitas</h4>
 
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="nomor" placeholder="NIK E-KTP/ Nomor Telepon">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="nomor" placeholder=" Nomor Telepon" onkeypress="return onlyNumberKey(event)">
                             <label for="floatingnameInput">Nomor Telepon</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="jenis_kelamin" aria-label="Floating label select example">
-                                <option selected>Pilih...</option>
-                                <option value="L">Laki - laki</option>
-                                <option value="P">Perempuan</option>
-                            </select>
-                            <label for="floatingSelectGrid">Jenis Kelamin</label>
+                        <div class="mb-2">
+                            <label class="d-block mb-2">Jenis Kelamin :</label>
+                            
+                            <div class="form-check form-check-inline" style="width: 50%;">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1" value="L">
+                                <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2" value="P">
+                                <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                            </div>                                                          
                         </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-1">
                             <select class="form-select" id="pendidikan" aria-label="Floating label select example">
                                 <option selected>Pilih...</option>
                                 <option value="SD">SD</option>
@@ -102,7 +107,7 @@
                             </select>
                             <label for="floatingSelectGrid">Pendidikan</label>
                         </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-1">
                             <select class="form-select" id="pekerjaan" aria-label="Floating label select example">
                                 <option selected>Pilih...</option>
                                 <option value="PNS">PNS</option>
@@ -125,7 +130,7 @@
             <div class="col-xl-12">
                 <div class="card border border-warning">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Silahkan masukan penilaian anda.</h4>
+                        <h4 class="card-title mb-1">Silahkan masukan penilaian anda.</h4>
 
                         <table class="table table-borderless mb-0">
                             <tbody>
@@ -164,14 +169,14 @@
             <div class="col-xl-12">
                 <div class="card border border-warning">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Silahkan masukan saran/ kritik anda.</h4>
-                        <h4 class="card-title mb-4">Terima kasih</h4>
+                        <h4 class="card-title mb-1">Silahkan masukan saran/ kritik anda.</h4>
+                        <h4 class="card-title mb-1">Terima kasih.</h4>
 
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <textarea id="saran_kritik" class="form-control" maxlength="225" rows="7" placeholder=""></textarea>
                             </div>
                             <div class="col-sm-auto">
-                                <div class="d-grid gap-2">
+                                <div class="d-grid gap-1">
                                     <button type="button" class="btn btn-warning btn-lg waves-effect waves-light" id="kirim_survey">Kirim</button>
                                 </div>
                             </div>

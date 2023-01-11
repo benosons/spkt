@@ -16,8 +16,8 @@
         <div class="row">
             
             <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h3 class="mb-sm-0 font-size-18 text-center fw-bolder">SELAMAT DATANG,</h3>
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <h3 class="mb-sm-0 font-size-18 text-center fw-bolder">SELAMAT DATANG</h3>
                     <h3 class="mb-sm-0 font-size-18 text-center fw-bolder">Silahkan Mengisi Buku Tamu</h3>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <!-- end page title -->
 
         <div class="row">
-                        <div hidden class="col-xl-12">
+            <div hidden class="col-xl-12">
                 <div class="card overflow-hidden border border-warning">
                     <div class="bg-dark">
                         <div class="row">
@@ -87,13 +87,13 @@
             <div class="col-xl-12">
                 <div class="card border border-warning">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Silahkan Masukan Identitas</h4>
+                        <h4 class="card-title mb-1">Silahkan Masukan Identitas</h4>
 
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="formrow-firstname-input" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="nama" placeholder="">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="formrow-firstname-input" class="form-label">Nomor Telepon</label>
                             <input type="text" class="form-control" id="telp" placeholder="" onkeypress="return onlyNumberKey(event)">
                         </div>
@@ -133,24 +133,25 @@
                                 <option value="LAINNYA">LAINNYA</option>
                             </select>
                         </div> -->
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <div>
-                                <label for="ektp" class="form-label">Foto E-KTP</label>
+                                <label for="ektp" class="form-label">Foto Identitas</label>
                                 <input class="form-control" id="ektp" type="file" accept="image/*">
                             </div>
-                            <div class="mb-0">
-                                <img class="rounded me-2"  width="100%" id="previewKtp" >
-                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <img class="rounded me-2"  width="100%" id="previewKtp" >
                         </div>
                         
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <div>
                                 <label for="ektp" class="form-label">Foto Selfie</label>
-                                <input class="form-control" id="selfie" type="file">
+                                <input class="form-control" id="selfie" type="file" accept="image/*">
                             </div>
-                            <div class="mb-0">
-                                <img class="rounded me-2"  width="100%" id="previewSelfie" >
-                            </div>
+                            
+                        </div>
+                        <div class="mb-1">
+                            <img class="rounded me-2"  width="100%" id="previewSelfie" >
                         </div>
                         <div class="mb-3">
                             <label for="tujuan" class="form-label">Tujuan</label>
@@ -172,6 +173,13 @@
                     <!-- end card body -->
                 </div>
                 <!-- end card -->
+            </div>
+            <div class="col-xl-12">
+                <div class="card overflow-hidden border border-warning">
+                    <div class="bg-dark">
+                        <img src="{{baseURL}}/assets/img/presisi.png" alt="" class="img-fluid">
+                    </div>
+                </div>
             </div>
             <!-- end col -->
         </div>

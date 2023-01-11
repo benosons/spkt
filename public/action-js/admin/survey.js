@@ -17,7 +17,7 @@ $(document).ready(function(){
     callback : function(result) {
     if(result) {
         var nomor         = $('#nomor').val()
-        var jenis_kelamin = $('#jenis_kelamin').val()
+        var jenis_kelamin = $('[name="jenis_kelamin"]:checked').val()
         var pendidikan    = $('#pendidikan').val()
         var pekerjaan     = $('#pekerjaan').val()
     
@@ -119,5 +119,14 @@ function emot(param, kode){
     window.emots = 3
   }
   
+}
+
+function onlyNumberKey(evt) {
+              
+  // Only ASCII character in that range allowed
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+      return false;
+  return true;
 }
 
