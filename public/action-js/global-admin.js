@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 function tunggu() {
   setTimeout(() => {
-    $('.bootbox').removeAttr('style');
+    $('.bootbox').remove();
     $('.modal-backdrop').remove();
   }, 1000);
 }

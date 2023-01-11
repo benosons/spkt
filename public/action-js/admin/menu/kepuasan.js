@@ -4,10 +4,7 @@ $(document).ready(function(){
 });
 
 function load(){
-    bootbox.dialog({
-        message: '<p class="text-center mb-0"><i class="fa fa-spin fa-spinner"></i> Mohon Tunggu ...</p>',
-        closeButton: true
-      });
+
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -82,13 +79,10 @@ function load(){
                         this.$('tr').click( function () {
                             tr = this;
                         });
-
-                        tunggu()
                     }
                 });
             }else{
                  $("#datasurvey").DataTable()
-                 tunggu()
             }
         }
     })
