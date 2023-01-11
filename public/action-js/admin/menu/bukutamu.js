@@ -15,9 +15,7 @@ function load(){
         success: function(result){
             let data = result.data;
             let code = result.code;
-            $('.modal-dialog').remove();
-            $('.modal-backdrop').remove();
-            $('.bootbox').remove();
+            
             if(code){
                 var dt = $('#datatamu').DataTable({
                     destroy: true,
@@ -82,10 +80,13 @@ function load(){
                         this.$('tr').click( function () {
                             tr = this;
                         });
+
+                        tunggu()
                     }
                 });
             }else{
                  $("#datatamu").DataTable()
+                 tunggu()
             }
         }
     })

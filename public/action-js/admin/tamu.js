@@ -101,9 +101,10 @@ function save(formData){
           },
           callback: function (result) {
             localStorage.setItem("nopelet", window.encrypted, 86400000);
-            $('.bootbox').remove();
-            $('.modal-dialog').remove();
-            $('.modal-backdrop').remove();
+            setTimeout(() => {
+              $('.bootbox').removeAttr('style');
+              $('.modal-backdrop').remove();
+            }, 1000);
             location.reload()
           }
       });

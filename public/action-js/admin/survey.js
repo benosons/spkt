@@ -83,9 +83,10 @@ function save(formData){
               },
           },
           callback: function (result) {
-            $('.bootbox').remove();
-            $('.modal-dialog').remove();
-            $('.modal-backdrop').remove();
+            setTimeout(() => {
+              $('.bootbox').removeAttr('style');
+              $('.modal-backdrop').remove();
+            }, 1000);
             location.reload()
           }
       });
