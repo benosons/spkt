@@ -31,34 +31,45 @@ function load(){
                         { 'mDataProp': 'telp', 'width':'10'},
                         { 'mDataProp': 'jenis_kelamin', 'width':'10'},
                         { 'mDataProp': 'tujuan'},
-                        { 'mDataProp': 'tujuan'},
                         { 'mDataProp': 'create_date'},
+                        { 'mDataProp': 'tujuan'},
                     ],
                     order: [[0, 'ASC']],
                     fixedColumns: true,
                     aoColumnDefs:[
                         { width: 50, targets: 0 },
+                        // {
+                        //     mRender: function ( data, type, row ) {
+                        //         if(type == 'display'){
+                        //             let el = `<div class="popup-gallery d-flex flex-wrap">
+                        //                             <a href="#" title="Project 1">
+                        //                                 <div class="img-fluid">
+                        //                                     <img src="${row.ektp}" alt="" width="120">
+                        //                                 </div>
+                        //                             </a>
+                        //                             <a href="#" title="Project 2">
+                        //                                 <div class="img-fluid">
+                        //                                     <img src="${row.selfie}" alt="" width="120">
+                        //                                 </div>
+                        //                             </a>
+                        //                         </div>`
+                        //             return el
+                        //         }
+                        //         return data;
+                        //     },
+                            
+                        //     aTargets: [ 5 ]
+                        // },
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
-                                    let el = `<div class="popup-gallery d-flex flex-wrap">
-                                                    <a href="#" title="Project 1">
-                                                        <div class="img-fluid">
-                                                            <img src="${row.ektp}" alt="" width="120">
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" title="Project 2">
-                                                        <div class="img-fluid">
-                                                            <img src="${row.selfie}" alt="" width="120">
-                                                        </div>
-                                                    </a>
-                                                </div>`
+                                    let el = `<a type="button" class="btn btn-sm btn-outline-info waves-effect waves-light" onclick="viewimage('${row.ektp}', '${row.selfie}')"><i class="mdi mdi-image"></i> Foto</a>`
                                     return el
                                 }
                                 return data;
                             },
                             
-                            aTargets: [ 5 ]
+                            aTargets: [ 6 ]
                         },
                     ],
                     fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
@@ -85,4 +96,10 @@ function load(){
             }
         }
     })
+}
+
+function viewimage(ektp, selfie) {
+    $('#modal-image').modal('show')
+    $('#img-ektp').attr("src", ektp)
+    $('#img-selfie').attr("src", selfie)
 }
