@@ -101,7 +101,9 @@ function save(formData){
           },
           callback: function (result) {
             localStorage.setItem("nopelet", window.encrypted, 86400000);
-            window.close();
+            setTimeout(() => {
+              window.close();
+            }, 1000);
           }
       });
         

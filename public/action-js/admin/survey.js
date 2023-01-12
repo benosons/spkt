@@ -83,7 +83,9 @@ function save(formData){
               },
           },
           callback: function (result) {
-            window.close();
+            setTimeout(() => {
+              window.close();
+            }, 1000);
           }
       });
         
