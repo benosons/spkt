@@ -98,16 +98,16 @@ function emot(param, kode){
   $('.emot').find("i").removeClass('text-success')
   $('.emot').find("i").removeClass('text-info')
   $('.emot').find("i").removeClass('text-danger')
-  $('.emot').find("i").addClass('text-warning')
+  $('.emot').find("i").addClass('text-default')
 
   if(kode == 1){
-    $(param).find("i").removeClass('text-warning')
+    $(param).find("i").removeClass('text-default')
     $(param).find("i").addClass('bx bx-smile text-success')
     window.emots = 1
   }
 
   if(kode == 2){
-    $(param).find("i").removeClass('text-warning')
+    $(param).find("i").removeClass('text-default')
     $(param).find("i").addClass('bx bx-meh text-info')
     window.emots = 2
   }
