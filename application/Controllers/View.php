@@ -123,4 +123,23 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
+	public function datapetugas()
+	{
+		if ($this->logged) {
+			helper('form');
+			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/petugas/datapetugas.js';
+			return \Twig::instance()->display('admin/petugas/datapetugas.html', $this->data);
+		} else {
+			return redirect('login');
+		}
+	}
+
+	public function petugas()
+	{
+		helper('form');
+		$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/petugas/petugas.js';
+		return \Twig::instance()->display('admin/petugas/index.html', $this->data);
+
+	}
+
 }

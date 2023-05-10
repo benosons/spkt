@@ -114,6 +114,44 @@ class Jsondata extends \CodeIgniter\Controller
 	
 		}
 
+		public function simpanpetugas(){
+			try
+			{
+			$request  = $this->request;
+			$table 	  = 'data_petugas';
+
+			$model 	  = new \App\Models\DataModel();
+	
+			$data = [];
+			$data['nama']			= $request->getVar('nama');
+			$data['nrp']			= $request->getVar('nrp');
+			$data['whatsapp']		= $request->getVar('whatsapp');
+			$data['alamat']			= $request->getVar('alamat_1').' '.$request->getVar('alamat_2').' '.$request->getVar('alamat_3');
+				
+			$data['create_date'] 	= $this->now;
+			$data['update_date'] 	= $this->now;
+			$data['create_by'] 		= $this->data['userid'];
+			$data['update_by'] 		= $this->data['userid'];
+			
+			$res = $model->saveData($table, $data);
+			$id  = $model->insertID();
+	
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+	
+		}
+
 		public function loadsurvey()
 		{
 			try
@@ -167,6 +205,45 @@ class Jsondata extends \CodeIgniter\Controller
 	
 					$fulldata = [];
 					$data = $model->gettamu();
+					
+					if($data){
+						$response = [
+							'status'   => 'sukses',
+							'code'     => '1',
+							'data' 	   => $data
+						];
+					}else{
+						$response = [
+							'status'   => 'gagal',
+							'code'     => '0',
+							'data'     => 'tidak ada data',
+						];
+					}
+	
+					header('Content-Type: application/json');
+					echo json_encode($response);
+					exit;
+				}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+		}
+
+		public function loadpetugas()
+		{
+			try
+			{
+					$request  	= $this->request;
+					$id		 	= $request->getVar('id');
+					$role 		= $this->data['role'];
+					$userid		= $this->data['userid'];
+	
+					$model 	  = new \App\Models\DataModel();
+
+	
+					$fulldata = [];
+					$data = $model->getpetugas();
 					
 					if($data){
 						$response = [

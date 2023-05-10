@@ -27,4 +27,13 @@ class DataModel extends Model{
         return  $query->getResult();
     }
 
+    public function getpetugas()
+    {
+        $builder = $this->db->table('data_petugas');
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
 }

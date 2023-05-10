@@ -86,14 +86,18 @@ $routes->add('survey', 'View::survey');
 $routes->add('tamu', 'View::tamu');
 $routes->add('kepuasan', 'View::kepuasan');
 $routes->add('bukutamu', 'View::bukutamu');
+$routes->add('datapetugas', 'View::datapetugas');
+$routes->add('petugas', 'View::petugas');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('logout', 'Auth::logout');
 
 $routes->post('submitsurvey', 'Jsondata::submitsurvey');
 $routes->post('submittamu', 'Jsondata::submittamu');
+$routes->post('simpanpetugas', 'Jsondata::simpanpetugas');
 $routes->post('loadsurvey', 'Jsondata::loadsurvey');
 $routes->post('loadtamu', 'Jsondata::loadtamu');
+$routes->post('loadpetugas', 'Jsondata::loadpetugas');
 
 /**
  * --------------------------------------------------------------------
