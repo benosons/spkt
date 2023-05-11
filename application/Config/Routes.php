@@ -98,6 +98,8 @@ $routes->post('simpanpetugas', 'Jsondata::simpanpetugas');
 $routes->post('loadsurvey', 'Jsondata::loadsurvey');
 $routes->post('loadtamu', 'Jsondata::loadtamu');
 $routes->post('loadpetugas', 'Jsondata::loadpetugas');
+$routes->post('generateqr', 'Jsondata::generateqr');
+$routes->post('qrbarcode', 'QRBarcode::index');
 
 /**
  * --------------------------------------------------------------------

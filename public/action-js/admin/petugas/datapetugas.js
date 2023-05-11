@@ -63,7 +63,6 @@ function load(){
                         { 'mDataProp': 'create_date'},
                         { 'mDataProp': 'id'},
                         { 'mDataProp': 'id'},
-                        { 'mDataProp': 'id'},
                     ],
                     order: [[0, 'ASC']],
                     fixedColumns: true,
@@ -72,13 +71,24 @@ function load(){
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
-                                    let el = `<a type="button" class="btn btn-sm btn-outline-info waves-effect waves-light" onclick="viewimage()"><i class="mdi mdi-image"></i> Foto</a>`
+                                    let el = `<a href="${row.link}" target="_blank"><i class="mdi mdi-link"></i></a>`
                                     return el
                                 }
                                 return data;
                             },
                             
-                            aTargets: [ 8 ]
+                            aTargets: [ 6 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = `<a type="button" class="btn btn-sm btn-outline-info waves-effect waves-light" onclick="viewimage('${row.qr}')"><i class="mdi mdi-qrcode"></i> QRCODE</a>`
+                                    return el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 7 ]
                         },
                     ],
                     fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){

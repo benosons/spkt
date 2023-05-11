@@ -2,6 +2,7 @@
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use App\Controller\BaseController;
+use App\Libraries\Ciqrcode;
 
 class Jsondata extends \CodeIgniter\Controller
 {
@@ -13,6 +14,8 @@ class Jsondata extends \CodeIgniter\Controller
       	$this->session = session();
 		$this->now = date('Y-m-d H:i:s');
 		$this->request = $request;
+		$this->qrcode = new Ciqrcode();
+		
       	$this->logged = $this->session->get('logged_in');
 		$this->data = array(
 			'version' => \CodeIgniter\CodeIgniter::CI_VERSION,
@@ -244,7 +247,12 @@ class Jsondata extends \CodeIgniter\Controller
 	
 					$fulldata = [];
 					$data = $model->getpetugas();
-					
+					foreach ($data as $key => $value) {
+						$qrpath = $this->qr($value->id.$value->nrp, BASE."/petugas?id=$value->id");
+						$data[$key]->qr = $this->data['baseURL'].'/assets/qr/'.$value->id.$value->nrp.'.png';
+						$data[$key]->link = BASE."/petugas?id=$value->id";
+					}
+
 					if($data){
 						$response = [
 							'status'   => 'sukses',
@@ -268,4 +276,13 @@ class Jsondata extends \CodeIgniter\Controller
 				die($e->getMessage());
 			}
 		}
+
+	public function qr($name, $value)
+	{
+		$params['data'] = $value;
+		$params['level'] = 'H';
+		$params['size'] = 10;
+		$params['savename'] = FCPATH.'public/assets/qr/'.$name.".png";
+		return  $this->qrcode->generate($params);
+	}
 }
