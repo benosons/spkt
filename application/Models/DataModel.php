@@ -20,7 +20,7 @@ class DataModel extends Model{
 
     public function gettamu()
     {
-        $builder = $this->db->table('data_tamu');
+        $builder = $this->db->table('data_tamu')->select('id, nama, telp, jenis_kelamin, tujuan, create_date, update_date, create_by');
         $query   = $builder->get();
         // echo $this->db->getLastQuery();die;
 
