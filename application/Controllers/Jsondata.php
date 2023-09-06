@@ -285,4 +285,85 @@ class Jsondata extends \CodeIgniter\Controller
 		$params['savename'] = FCPATH.'public/assets/qr/'.$name.".png";
 		return  $this->qrcode->generate($params);
 	}
+
+	public function submitperkara(){
+		try {
+			$request  = $this->request;
+			$model 	  = new \App\Models\DataModel();
+
+			$data = [];
+
+			$data['nolaporan'] 		= $request->getVar('nolaporan');
+			$data['tgllaporan'] 	= $request->getVar('tgllaporan');
+			$data['pelapor'] 		= $request->getVar('pelapor');
+			$data['tkp'] 			= $request->getVar('tkp');
+			$data['kronologis'] 	= $request->getVar('kronologis');
+			$data['terlapor'] 		= $request->getVar('terlapor');
+			$data['pasal'] 			= $request->getVar('pasal');
+			$data['penyidik'] 		= $request->getVar('penyidik');
+			$data['sudah'] 			= $request->getVar('sudah');
+			$data['hambatan'] 		= $request->getVar('hambatan');
+			$data['keterangan'] 	= $request->getVar('keterangan');
+				
+			$data['create_date'] 	= $this->now;
+			$data['update_date'] 	= $this->now;
+			$data['create_by'] 		= $this->data['userid'];
+			$data['update_by'] 		= $this->data['userid'];
+
+			$res = $model->saveData('data_perkara', $data);
+			$id  = $model->insertID();
+
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+
+	}
+
+	public function loadperkara()
+	{
+		try
+		{
+				$request  	= $this->request;
+				$id		 	= $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				$model 	  = new \App\Models\DataModel();
+
+				$fulldata = [];
+				$data = $model->getPerkara();
+				
+				if($data){
+					$response = [
+						'status'   => 'sukses',
+						'code'     => '1',
+						'data' 	   => $data
+					];
+				}else{
+					$response = [
+						'status'   => 'gagal',
+						'code'     => '0',
+						'data'     => 'tidak ada data',
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 }

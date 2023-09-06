@@ -88,6 +88,7 @@ $routes->add('kepuasan', 'View::kepuasan');
 $routes->add('bukutamu', 'View::bukutamu');
 $routes->add('datapetugas', 'View::datapetugas');
 $routes->add('petugas', 'View::petugas');
+$routes->add('perkara', 'View::perkara');
 
 $routes->add('auth', 'Auth::auth');
 $routes->add('logout', 'Auth::logout');
@@ -100,6 +101,8 @@ $routes->post('loadtamu', 'Jsondata::loadtamu');
 $routes->post('loadpetugas', 'Jsondata::loadpetugas');
 $routes->post('generateqr', 'Jsondata::generateqr');
 $routes->post('qrbarcode', 'QRBarcode::index');
+$routes->post('submitperkara', 'Jsondata::submitperkara');
+$routes->post('loadperkara', 'Jsondata::loadperkara');
 
 /**
  * --------------------------------------------------------------------

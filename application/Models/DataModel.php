@@ -36,4 +36,13 @@ class DataModel extends Model{
         return  $query->getResult();
     }
 
+    public function getPerkara()
+    {
+        $builder = $this->db->table('data_perkara');
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
 }

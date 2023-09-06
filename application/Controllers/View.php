@@ -142,4 +142,15 @@ class View extends \CodeIgniter\Controller
 
 	}
 
+	public function perkara()
+	{
+		if ($this->logged) {
+			helper('form');
+			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/perkara.js';
+			return \Twig::instance()->display('admin/menu/perkara.html', $this->data);
+		} else {
+			return redirect('login');
+		}
+	}
+
 }

@@ -1,0 +1,128 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .img-fluid img {
+        filter: blur(3px);
+    }
+</style>
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18"><i class="bx bx-book-bookmark"></i> Data Kontrol Perkara </h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Kontrol Perkara</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-tambah"><i class="bx bx-plus"></i> Tambah Laporan Perkara</button>
+                        </h4>
+                        <div class="table-responsive">
+                            <table id="dataperkara" class="table table-bordered dt-responsive  nowrap w-100">
+                                <thead class="table-light">
+                                <tr>
+                                    <th>No. Laporan</th>
+                                    <th>Tgl. Laporan</th>
+                                    <th>Pelapor</th>
+                                    <th>TKP</th>
+                                    <th>Kronologis</th>
+                                    <th>Terlapor</th>
+                                    <th>Pasal</th>
+                                    <th>Penyidik</th>
+                                    <th>Sudah Dilakukan</th>
+                                    <th>Hambatan</th>
+                                    <th>Keterangan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-hidden="true" id="modal-tambah" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Data Perkara</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Nomor Laporan</label>
+                                <input type="text" class="form-control" id="no-laporan" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Tanggal Laporan</label>
+                                <input type="date" class="form-control" id="tgl-laporan" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Pelapor</label>
+                                <textarea class="form-control" id="pelapor" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">TKP</label>
+                                <textarea class="form-control" id="tkp" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Kronologis</label>
+                                <textarea class="form-control" id="kronologis" rows="5"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Terlapor</label>
+                                <textarea class="form-control" id="terlapor" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Pasal</label>
+                                <input type="text" class="form-control" id="pasal" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Penyidik</label>
+                                <textarea class="form-control" id="penyidik" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Sudah Dilakukan</label>
+                                <input type="text" class="form-control" id="sudah" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Hambatan</label>
+                                <textarea class="form-control" id="hambatan" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Keterangan</label>
+                                <textarea class="form-control" id="keterangan" rows="3"></textarea>
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <div class="">
+                            <button type="submit" class="btn btn-primary w-md" onclick="addperkara()"><i class="bx bx-check fs-4"></i> Simpan Laporan</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+    </div> <!-- container-fluid -->
+</div>
+
+{% endblock %}
