@@ -58,4 +58,11 @@ class DataModel extends Model{
       return true;
     }
 
+    
+    public function deleteperkara($id = null)
+    {
+        $res = $this->db->table('data_perkara')->where('id', $id)->delete();
+        return  $res;
+    }
+
 }

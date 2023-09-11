@@ -18,7 +18,7 @@ function load(){
             let data = result.data;
             let code = result.code;
             
-            if(code){
+            if(code != 0){
                 var dt = $('#dataperkara').DataTable({
                     destroy: true,
                     paging: true,
@@ -53,7 +53,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = `<div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-warning" onclick="editperkara(${row.id})"><i class="bx bx-edit fs-4"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bx bx-trash fs-4"></i></button>
+                                                <button type="button" class="btn btn-danger" onclick="deleteperkara(${row.id})"><i class="bx bx-trash fs-4"></i></button>
                                             </div>`
                                     return el
                                 }
@@ -151,4 +151,38 @@ function editperkara(id) {
             });
         }
     })
+}
+
+function deleteperkara(id) {
+    Swal.fire({
+        title: '',
+        text: "Menghapus Data ini !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'deleteperkara',
+                data : {
+                    id : id
+                },
+                success: function(result){
+                    $('#modal-tambah').modal('hide')
+                    load()
+                }
+            })
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
+
 }
