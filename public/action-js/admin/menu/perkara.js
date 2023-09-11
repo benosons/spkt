@@ -42,7 +42,11 @@ function load(){
                         { 'mDataProp': 'sudah' },
                         { 'mDataProp': 'hambatan' },
                         { 'mDataProp': 'keterangan' },
+                        { 'mDataProp': 'lp' },
+                        { 'mDataProp': 'l1' },
                         { 'mDataProp': 'atensi' },
+                        { 'mDataProp': 'p21' },
+                        { 'mDataProp': 'sp3' },
                         { 'mDataProp': 'id' }
                     ],
                     order: [[0, 'ASC']],
@@ -52,12 +56,92 @@ function load(){
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
-                                    return row.atensi == 1 ? `<i class="bx bx-check fs-3 text-success"></i>` : ''
+                                    let el = ''
+
+                                    el += `<div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <i class="bx bx-${row.lp == 1 ? 'check' : 'x'} fs-3 text-${row.lp == 1 ? 'success' : 'danger'}"></i>
+                                                </div>
+                                            </div>`
+
+                                    return  el
                                 }
                                 return data;
                             },
                             
                             aTargets: [ 11 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+
+                                    el += `<div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <i class="bx bx-${row.l1 == 1 ? 'check' : 'x'} fs-3 text-${row.l1 == 1 ? 'success' : 'danger'}"></i>
+                                                </div>
+                                            </div>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 12 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+                                    
+                                    el += `<div class="mb-3 row">
+                                            <div class="col-md-10">
+                                                <i class="bx bx-${row.atensi == 1 ? 'check' : 'x'} fs-3 text-${row.atensi == 1 ? 'success' : 'danger'}"></i>
+                                            </div>
+                                        </div>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 13 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+                                    
+                                    el += `<div class="mb-3 row">
+                                            <div class="col-md-10">
+                                                <i class="bx bx-${row.p21 == 1 ? 'check' : 'x'} fs-3 text-${row.p21 == 1 ? 'success' : 'danger'}"></i>
+                                            </div>
+                                        </div>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 14 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+                                    
+                                    el += `<div class="mb-3 row">
+                                            <div class="col-md-10">
+                                                <i class="bx bx-${row.sp3 == 1 ? 'check' : 'x'} fs-3 text-${row.sp3 == 1 ? 'success' : 'danger'}"></i>
+                                            </div>
+                                        </div>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 15 ]
                         },
                         {
                             mRender: function ( data, type, row ) {
@@ -71,7 +155,7 @@ function load(){
                                 return data;
                             },
                             
-                            aTargets: [ 12 ]
+                            aTargets: [ 16 ]
                         },
                     ],
                     // fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
@@ -94,7 +178,8 @@ function load(){
                     }
                 });
             }else{
-                 $("#dataperkara").DataTable()
+                var table = $('#dataperkara').DataTable();
+                table.clear().draw();
             }
         }
     })
@@ -128,7 +213,11 @@ function addperkara() {
     formData.append('sudah', $('#sudah').val())
     formData.append('hambatan', $('#hambatan').val())
     formData.append('keterangan', $('#keterangan').val())
+    formData.append('lp', $('#lp').is(':checked') ? 1 : 0)
+    formData.append('l1', $('#l1').is(':checked') ? 1 : 0)
     formData.append('atensi', $('#atensi').is(':checked') ? 1 : 0)
+    formData.append('p21', $('#p21').is(':checked') ? 1 : 0)
+    formData.append('sp3', $('#sp3').is(':checked') ? 1 : 0)
 
     
     $.ajax({
@@ -173,17 +262,30 @@ function editperkara(id) {
                             $(ele).prop('checked', true);
                         }
                         
-                    }
-
-                    
-                    
+                    }                    
                 }
                 
                 $('#sudah').val(element.sudah)
                 $('#hambatan').val(element.hambatan)
                 $('#keterangan').val(element.keterangan)
+
                 if(element.atensi == 1){
                     $('#atensi').prop('checked', true)
+                }
+                if(element.lp == 1){
+                    $('#lp').prop('checked', true)
+                }
+                if(element.l1 == 1){
+                    $('#l1').prop('checked', true)
+                }
+                if(element.atensi == 1){
+                    $('#atensi').prop('checked', true)
+                }
+                if(element.p21 == 1){
+                    $('#p21').prop('checked', true)
+                }
+                if(element.sp3 == 1){
+                    $('#sp3').prop('checked', true)
                 }
             });
         }

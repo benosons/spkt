@@ -33,7 +33,7 @@
                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-tambah"><i class="bx bx-plus"></i> Tambah Laporan Perkara</button>
                         </h4>
                         <div class="table-responsive">
-                            <table id="dataperkara" class="table table-bordered dt-responsive  nowrap w-100">
+                            <table id="dataperkara" class="table table-bordered dt-responsive w-100">
                                 <thead class="table-light">
                                 <tr>
                                     <th>No. Laporan</th>
@@ -47,7 +47,11 @@
                                     <th>Sudah Dilakukan</th>
                                     <th>Hambatan</th>
                                     <th>Keterangan</th>
+                                    <th>LP</th>
+                                    <th>L1</th>
                                     <th>Atensi</th>
+                                    <th>P21</th>
+                                    <th>SP3</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
@@ -68,6 +72,27 @@
                     <div class="modal-body">
                         <form id="form-perkara">
                             <input type="hidden" id="id_perkara">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-checkbox-outline form-check-primary mb-3">
+                                            <input class="form-check-input" type="checkbox" id="lp" value="1">
+                                            <label class="form-check-label" for="customCheckcolor1">
+                                                LP
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-checkbox-outline form-check-primary mb-3">
+                                            <input class="form-check-input" type="checkbox" id="l1" value="1">
+                                            <label class="form-check-label" for="customCheckcolor1">
+                                                L1
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <div class="mb-3">
                                 <label for="formrow-firstname-input" class="form-label">Nomor Laporan</label>
                                 <input type="text" class="form-control" id="no-laporan" placeholder="">
@@ -137,7 +162,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formrow-firstname-input" class="form-label">Sudah Dilakukan</label>
-                                <input type="text" class="form-control" id="sudah" placeholder="">
+                                <textarea class="form-control" id="sudah" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="formrow-firstname-input" class="form-label">Hambatan</label>
@@ -148,12 +173,33 @@
                                 <textarea class="form-control" id="keterangan" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
-                                <div class="form-check form-checkbox-outline form-check-primary mb-3">
-                                    <input class="form-check-input" type="checkbox" id="atensi" value="1">
-                                    <label class="form-check-label" for="customCheckcolor1">
-                                        Atensi
-                                    </label>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-checkbox-outline form-check-primary mb-3">
+                                            <input class="form-check-input" type="checkbox" id="atensi" value="1">
+                                            <label class="form-check-label" for="customCheckcolor1">
+                                                Atensi
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-checkbox-outline form-check-primary mb-3">
+                                            <input class="form-check-input" type="checkbox" id="p21" value="1">
+                                            <label class="form-check-label" for="customCheckcolor1">
+                                                P21
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-check form-checkbox-outline form-check-primary mb-3">
+                                            <input class="form-check-input" type="checkbox" id="sp3" value="1">
+                                            <label class="form-check-label" for="customCheckcolor1">
+                                                SP3
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
                             
                         </form>
