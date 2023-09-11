@@ -8,22 +8,40 @@ $(document).ready(function(){
     })
 
     $('#btn-atensi').on('change', function(){
-        var checkedValue = $('#btn-atensi:checked').val();
-        if(checkedValue == 1){
-            load(1)
-        }else{
-            load()
-        }
+        load()
+    })
+    $('#btn-lp').on('change', function(){
+        load()
+    })
+    $('#btn-l1').on('change', function(){
+        load()
     })
 });
 
-function load(atensi){
-    
+function load(){
+    let atensi = ''
+    let lp = ''
+    let l1 = ''
+
+    var btn_lp = $('#btn-lp:checked').val();
+    var btn_l1 = $('#btn-l1:checked').val();
+    var btn_atensi = $('#btn-atensi:checked').val();
+    if(btn_lp == 1){
+        lp = 1 // ADA TERLAPOR = P21
+    }
+    if(btn_l1 == 1){
+        l1 = 1  // DALAM LIDIK = SP3
+    }
+    if(btn_atensi == 1){
+        atensi = 1
+    }
     $.ajax({
         type: 'post',
         dataType: 'json',
         url: 'loadperkara',
         data: {
+            p21: lp,
+            sp3: l1,
             atensi: atensi
         },
         success: function(result){

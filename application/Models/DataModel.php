@@ -36,7 +36,7 @@ class DataModel extends Model{
         return  $query->getResult();
     }
 
-    public function getPerkara($id = null, $atensi = null )
+    public function getPerkara($id = null, $atensi = null, $p21 = null, $sp3 = null )
     {
         $builder = $this->db->table('data_perkara');
         if($id){
@@ -44,6 +44,12 @@ class DataModel extends Model{
         }
         if($atensi){
             $builder->where(['atensi' => $atensi]);
+        }
+        if($p21){
+            $builder->where(['p21' => $p21]);
+        }
+        if($sp3){
+            $builder->where(['sp3' => $sp3]);
         }
         $query   = $builder->get();
         // echo $this->db->getLastQuery();die;
