@@ -3,7 +3,9 @@ $(document).ready(function(){
     $('#dataperkara').DataTable()
     load()
 
-
+    $('#modal-tambah').on('show.bs.modal', function(){
+        $('#form-perkara')[0].reset()
+    })
 });
 
 function load(){
@@ -50,7 +52,7 @@ function load(){
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
                                     let el = `<div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-warning"><i class="bx bx-edit fs-4"></i></button>
+                                                <button type="button" class="btn btn-warning" onclick="editperkara(${row.id})"><i class="bx bx-edit fs-4"></i></button>
                                                 <button type="button" class="btn btn-danger"><i class="bx bx-trash fs-4"></i></button>
                                             </div>`
                                     return el
@@ -95,6 +97,7 @@ function viewimage(ektp, selfie) {
 
 function addperkara() {
     var formData = new FormData();
+    formData.append('id', $('#id_perkara').val())
     formData.append('nolaporan', $('#no-laporan').val())
     formData.append('tgllaporan', $('#tgl-laporan').val())
     formData.append('pelapor', $('#pelapor').val())
@@ -114,8 +117,38 @@ function addperkara() {
         url: 'submitperkara',
         data : formData,
         success: function(result){
+            $('#modal-tambah').modal('hide')
             load()
         }
     })
 
+}
+
+function editperkara(id) {
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: 'loadperkarabyid',
+        data : {
+            id : id
+        },
+        success: function(result){
+            var datas = result.data
+            $('#modal-tambah').modal('show')
+            datas.forEach(element => {
+                $('#id_perkara').val(element.id)
+                $('#no-laporan').val(element.nolaporan)
+                $('#tgl-laporan').val(element.tgllaporan)
+                $('#pelapor').val(element.pelapor)
+                $('#tkp').val(element.tkp)
+                $('#kronologis').val(element.kronologis)
+                $('#terlapor').val(element.terlapor)
+                $('#pasal').val(element.pasal)
+                $('#penyidik').val(element.penyidik)
+                $('#sudah').val(element.sudah)
+                $('#hambatan').val(element.hambatan)
+                $('#keterangan').val(element.keterangan)
+            });
+        }
+    })
 }

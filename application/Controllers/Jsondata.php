@@ -310,8 +310,13 @@ class Jsondata extends \CodeIgniter\Controller
 			$data['create_by'] 		= $this->data['userid'];
 			$data['update_by'] 		= $this->data['userid'];
 
-			$res = $model->saveData('data_perkara', $data);
-			$id  = $model->insertID();
+			if($request->getVar('id')){
+				$res = $model->updateperkara($request->getVar('id'), $data);
+			}else{
+				$res = $model->saveData('data_perkara', $data);
+				$id  = $model->insertID();
+
+			}
 
 			$response = [
 					'status'   => 'sukses',
@@ -342,6 +347,44 @@ class Jsondata extends \CodeIgniter\Controller
 
 				$fulldata = [];
 				$data = $model->getPerkara();
+				
+				if($data){
+					$response = [
+						'status'   => 'sukses',
+						'code'     => '1',
+						'data' 	   => $data
+					];
+				}else{
+					$response = [
+						'status'   => 'gagal',
+						'code'     => '0',
+						'data'     => 'tidak ada data',
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+	
+	public function loadperkarabyid()
+	{
+		try
+		{
+				$request  	= $this->request;
+				$id		 	= $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				$model 	  = new \App\Models\DataModel();
+
+				$fulldata = [];
+				$data = $model->getPerkara($id);
 				
 				if($data){
 					$response = [

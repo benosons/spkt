@@ -103,6 +103,7 @@ $routes->post('generateqr', 'Jsondata::generateqr');
 $routes->post('qrbarcode', 'QRBarcode::index');
 $routes->post('submitperkara', 'Jsondata::submitperkara');
 $routes->post('loadperkara', 'Jsondata::loadperkara');
+$routes->post('loadperkarabyid', 'Jsondata::loadperkarabyid');
 
 /**
  * --------------------------------------------------------------------
