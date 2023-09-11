@@ -6,14 +6,26 @@ $(document).ready(function(){
     $('#modal-tambah').on('show.bs.modal', function(){
         $('#form-perkara')[0].reset()
     })
+
+    $('#btn-atensi').on('change', function(){
+        var checkedValue = $('#btn-atensi:checked').val();
+        if(checkedValue == 1){
+            load(1)
+        }else{
+            load()
+        }
+    })
 });
 
-function load(){
+function load(atensi){
     
     $.ajax({
         type: 'post',
         dataType: 'json',
         url: 'loadperkara',
+        data: {
+            atensi: atensi
+        },
         success: function(result){
             let data = result.data;
             let code = result.code;

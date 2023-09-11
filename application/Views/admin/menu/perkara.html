@@ -30,8 +30,19 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-tambah"><i class="bx bx-plus"></i> Tambah Laporan Perkara</button>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-tambah"><i class="bx bx-plus"></i> Tambah Laporan Perkara</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
+                                        <input class="form-check-input" type="checkbox" id="btn-atensi" value="1">
+                                        <label class="form-check-label" for="SwitchCheckSizelg">Atensi</label>
+                                    </div>
+                                </div>
+                            </div>
                         </h4>
+                        
                         <div class="table-responsive">
                             <table id="dataperkara" class="table table-bordered dt-responsive w-100">
                                 <thead class="table-light">

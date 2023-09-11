@@ -346,13 +346,14 @@ class Jsondata extends \CodeIgniter\Controller
 		{
 				$request  	= $this->request;
 				$id		 	= $request->getVar('id');
+				$atensi		 	= $request->getVar('atensi');
 				$role 		= $this->data['role'];
 				$userid		= $this->data['userid'];
 
 				$model 	  = new \App\Models\DataModel();
-
+				
 				$fulldata = [];
-				$data = $model->getPerkara();
+				$data = $model->getPerkara('', $atensi);
 				
 				if($data){
 					$response = [
