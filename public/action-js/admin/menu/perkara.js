@@ -42,12 +42,23 @@ function load(){
                         { 'mDataProp': 'sudah' },
                         { 'mDataProp': 'hambatan' },
                         { 'mDataProp': 'keterangan' },
+                        { 'mDataProp': 'atensi' },
                         { 'mDataProp': 'id' }
                     ],
                     order: [[0, 'ASC']],
                     fixedColumns: true,
                     aoColumnDefs:[
                         { width: 50, targets: 0 },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    return row.atensi == 1 ? `<i class="bx bx-check fs-3 text-success"></i>` : ''
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 11 ]
+                        },
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
@@ -60,7 +71,7 @@ function load(){
                                 return data;
                             },
                             
-                            aTargets: [ 11 ]
+                            aTargets: [ 12 ]
                         },
                     ],
                     // fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
@@ -96,6 +107,14 @@ function viewimage(ektp, selfie) {
 }
 
 function addperkara() {
+    let penyidik = [];
+    for (let i = 0; i < $('[name="penyidik"]:checked').length; i++) {
+        const element = $('[name="penyidik"]:checked')[i];
+        penyidik.push(element.value)
+        
+    }
+    
+    console.log(penyidik.join("|"));
     var formData = new FormData();
     formData.append('id', $('#id_perkara').val())
     formData.append('nolaporan', $('#no-laporan').val())
@@ -105,11 +124,13 @@ function addperkara() {
     formData.append('kronologis', $('#kronologis').val())
     formData.append('terlapor', $('#terlapor').val())
     formData.append('pasal', $('#pasal').val())
-    formData.append('penyidik', $('#penyidik').val())
+    formData.append('penyidik', penyidik.join("|"))
     formData.append('sudah', $('#sudah').val())
     formData.append('hambatan', $('#hambatan').val())
     formData.append('keterangan', $('#keterangan').val())
+    formData.append('atensi', $('#atensi').is(':checked') ? 1 : 0)
 
+    
     $.ajax({
         type: 'post',
         processData: false,
@@ -144,10 +165,26 @@ function editperkara(id) {
                 $('#kronologis').val(element.kronologis)
                 $('#terlapor').val(element.terlapor)
                 $('#pasal').val(element.pasal)
-                $('#penyidik').val(element.penyidik)
+                let peny = element.penyidik.split("|")
+                for (let i = 0; i < peny.length; i++) {
+                    for (let index = 0; index < $('[name="penyidik"]').length; index++) {
+                        const ele = $('[name="penyidik"]')[index];
+                        if(ele.value == peny[i]){
+                            $(ele).prop('checked', true);
+                        }
+                        
+                    }
+
+                    
+                    
+                }
+                
                 $('#sudah').val(element.sudah)
                 $('#hambatan').val(element.hambatan)
                 $('#keterangan').val(element.keterangan)
+                if(element.atensi == 1){
+                    $('#atensi').prop('checked', true)
+                }
             });
         }
     })

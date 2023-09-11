@@ -304,6 +304,7 @@ class Jsondata extends \CodeIgniter\Controller
 			$data['sudah'] 			= $request->getVar('sudah');
 			$data['hambatan'] 		= $request->getVar('hambatan');
 			$data['keterangan'] 	= $request->getVar('keterangan');
+			$data['atensi'] 		= $request->getVar('atensi');
 				
 			$data['create_date'] 	= $this->now;
 			$data['update_date'] 	= $this->now;
