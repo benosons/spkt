@@ -65,7 +65,7 @@ function load(){
                         { 'mDataProp': 'tgllaporan' },
                         { 'mDataProp': 'pelapor' },
                         { 'mDataProp': 'tkp' },
-                        { 'mDataProp': 'kronologis' },
+                        { 'mDataProp': 'kronologis', "width": '100' },
                         { 'mDataProp': 'terlapor' },
                         { 'mDataProp': 'pasal' },
                         { 'mDataProp': 'penyidik' },
@@ -278,7 +278,15 @@ function editperkara(id) {
             datas.forEach(element => {
                 $('#id_perkara').val(element.id)
                 $('#no-laporan').val(element.nolaporan)
-                $('#tgl-laporan').val(element.tgllaporan)
+                var now = new Date(element.tgllaporan);
+
+                var day = ("0" + now.getDate()).slice(-2);
+                var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+                var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+                $('#tgl-laporan').val(today)
+                
                 $('#pelapor').val(element.pelapor)
                 $('#tkp').val(element.tkp)
                 $('#kronologis').val(element.kronologis)
