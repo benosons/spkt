@@ -65,7 +65,7 @@ function load(){
                         { 'mDataProp': 'tgllaporan' },
                         { 'mDataProp': 'pelapor' },
                         { 'mDataProp': 'tkp' },
-                        { 'mDataProp': 'kronologis', "width": '100' },
+                        { 'mDataProp': 'kronologis', className: "my_class" },
                         { 'mDataProp': 'terlapor' },
                         { 'mDataProp': 'pasal' },
                         { 'mDataProp': 'penyidik' },
@@ -82,7 +82,20 @@ function load(){
                     order: [[0, 'ASC']],
                     fixedColumns: true,
                     aoColumnDefs:[
-                        { width: 50, targets: 0 },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}')">Lihat Kronologis</button>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 4 ]
+                        },
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
@@ -286,7 +299,7 @@ function editperkara(id) {
                 var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
 
                 $('#tgl-laporan').val(today)
-                
+
                 $('#pelapor').val(element.pelapor)
                 $('#tkp').val(element.tkp)
                 $('#kronologis').val(element.kronologis)
@@ -362,4 +375,10 @@ function deleteperkara(id) {
         }
       })
 
+}
+
+function lihatkronologis(params) {
+    console.log(params);
+    $('#krono').html(params)
+    $('#modal-kronologis').modal('show')
 }
