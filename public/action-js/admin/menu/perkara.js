@@ -87,7 +87,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data.replace(/\n/g, "<br />")}')">Lihat</button>`
+                                    el += '<button class="btn btn-warning" onclick="lihatkronologis(`'+data+'`, `Pelapor`)">Lihat</button>'
 
                                     return  el
                                 }
@@ -101,7 +101,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data.replace(/\n/g, "<br />")}')">Lihat</button>`
+                                    el += '<button class="btn btn-warning" onclick="lihatkronologis(`'+data+'`, `Kronologis`)">Lihat</button>'
 
                                     return  el
                                 }
@@ -391,8 +391,9 @@ function deleteperkara(id) {
 
 }
 
-function lihatkronologis(params) {
-    console.log(params);
+function lihatkronologis(params, text) {
+    
+    $('#text-nya').html(text)
     $('#krono').html(params)
     $('#modal-kronologis').modal('show')
 }
