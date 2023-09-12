@@ -87,7 +87,21 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}')">Lihat Kronologis</button>`
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}')">Lihat</button>`
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 2 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
+
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}')">Lihat</button>`
 
                                     return  el
                                 }
