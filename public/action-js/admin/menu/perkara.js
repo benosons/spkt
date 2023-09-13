@@ -454,3 +454,43 @@ function selesaikan(id) {
       })
 
 }
+
+function downloadexcel() {
+    
+    Swal.fire({
+        title: 'Pilih status yang akan didownload?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#34c38f',
+        confirmButtonText: 'Sudah Selesai',
+        denyButtonText: `Belum Selesai`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'downloadexcel',
+                data : {
+                    status : 1
+                },
+                success: function(result){
+                    window.location.href = result.data
+                }
+            })   
+        } else if (result.isDenied) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'downloadexcel',
+                data : {
+                    status : ''
+                },
+                success: function(result){
+                    window.location.href = result.data
+                }
+            }) 
+        }
+      })
+    
+}

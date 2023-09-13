@@ -74,4 +74,18 @@ class DataModel extends Model{
         return  $res;
     }
 
+    public function getPerkaraByStat($stat = null )
+    {
+        $builder = $this->db->table('data_perkara');
+        if($stat == 1){
+            $builder->where(['status' => 1]);
+        }else{
+            $builder->where('status != 1');
+        }
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
 }

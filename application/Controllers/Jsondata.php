@@ -4,6 +4,11 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 use App\Controller\BaseController;
 use App\Libraries\Ciqrcode;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Wxlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 class Jsondata extends \CodeIgniter\Controller
 {
 	protected $session;
@@ -481,5 +486,53 @@ class Jsondata extends \CodeIgniter\Controller
 				die($e->getMessage());
 			}
 
+	}
+
+	function downloadexcel(){
+
+		$file = 'public/template.xlsx';
+		$reader = new Xlsx();
+		$spreadsheet = $reader->load($file);
+		$sheet_data = $spreadsheet->getActiveSheet();
+
+		$request	= $this->request;
+		$status		= $request->getVar('status');
+		$model 	  = new \App\Models\DataModel();
+		$data = $model->getPerkaraByStat($status);
+
+		// Data Penghuni
+		$sheet_data->setCellValue('A1', 'No Laporan/ Tgl. Laporan');
+		$sheet_data->setCellValue('B1', 'Pelapor/ TKP');
+		$sheet_data->setCellValue('C1', 'Kronologis');
+		$sheet_data->setCellValue('D1', 'Terlapor');
+		$sheet_data->setCellValue('E1', 'Pasal/ Penyidik');
+		$sheet_data->setCellValue('F1', 'Sudah Dilakukan');
+		$sheet_data->setCellValue('G1', 'Hambatan');
+		$sheet_data->setCellValue('H1', 'Keterangan');
+
+		$col = 2;
+		foreach ($data as $key => $value) {
+			$sheet_data->setCellValue('A' . $col, $value->nolaporan . '/' . $value->tgllaporan );
+			$sheet_data->setCellValue('B' . $col, $value->pelapor . '/' . $value->tkp );
+			$sheet_data->setCellValue('C' . $col, $value->kronologis );
+			$sheet_data->setCellValue('D' . $col, $value->terlapor );
+			$sheet_data->setCellValue('E' . $col, $value->pasal . '/' . $value->penyidik );
+			$sheet_data->setCellValue('F' . $col, $value->sudah );
+			$sheet_data->setCellValue('G' . $col, $value->hambatan );
+			$sheet_data->setCellValue('H' . $col, $value->keterangan );
+		}
+
+		$writer = new Wxlsx($spreadsheet);
+		$fileo = 'public/cetak/perkara_'.($status == 1 ? 'sudah': 'belum').'_'.date('Y-m-d').'.xlsx';
+		$writer->save($fileo);
+		chmod($fileo, 0777); 
+		
+		$response = [
+			'status'   => 'success',
+			'code'     => '0',
+			'data'     => $fileo,
+		];
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 }

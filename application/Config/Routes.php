@@ -106,6 +106,7 @@ $routes->post('loadperkara', 'Jsondata::loadperkara');
 $routes->post('loadperkarabyid', 'Jsondata::loadperkarabyid');
 $routes->post('deleteperkara', 'Jsondata::deleteperkara');
 $routes->post('selesaiperkara', 'Jsondata::selesaiperkara');
+$routes->post('downloadexcel', 'Jsondata::downloadexcel');
 
 /**
  * --------------------------------------------------------------------
