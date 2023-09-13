@@ -509,7 +509,7 @@ class Jsondata extends \CodeIgniter\Controller
 		$sheet_data->setCellValue('F1', 'Sudah Dilakukan');
 		$sheet_data->setCellValue('G1', 'Hambatan');
 		$sheet_data->setCellValue('H1', 'Keterangan');
-
+	
 		$col = 2;
 		foreach ($data as $key => $value) {
 			$sheet_data->setCellValue('A' . $col, $value->nolaporan . '/' . $value->tgllaporan );
@@ -520,6 +520,7 @@ class Jsondata extends \CodeIgniter\Controller
 			$sheet_data->setCellValue('F' . $col, $value->sudah );
 			$sheet_data->setCellValue('G' . $col, $value->hambatan );
 			$sheet_data->setCellValue('H' . $col, $value->keterangan );
+			$col++;
 		}
 
 		$writer = new Wxlsx($spreadsheet);
