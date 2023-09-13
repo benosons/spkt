@@ -78,9 +78,9 @@ class DataModel extends Model{
     {
         $builder = $this->db->table('data_perkara');
         if($stat == 1){
-            $builder->where(['status' => 1]);
+            $builder->where(['STATUS' => 1]);
         }else{
-            $builder->where('status != 1');
+            $builder->where("(STATUS != '1' or STATUS is null)");
         }
         $query   = $builder->get();
         // echo $this->db->getLastQuery();die;
