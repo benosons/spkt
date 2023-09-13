@@ -45,6 +45,8 @@ $RECYCLE.BIN/
 application/.env
 application/cache/*
 public/uploads/*
+public/cetak/*
+public/template.xlsx
 
 #-------------------------
 # Temporary Files
