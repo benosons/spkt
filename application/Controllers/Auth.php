@@ -55,7 +55,7 @@ class Auth extends \CodeIgniter\Controller
 							$session->set($ses_data);
 
 							$userModel->updateIsLogin($dataemail->user_id, ['isLogin' => 1]);
-							return redirect('dashboard');
+							return redirect('perkara');
 					}else{
 							$session->setFlashdata('msg', 'Salah Password');
 							return redirect('login');
