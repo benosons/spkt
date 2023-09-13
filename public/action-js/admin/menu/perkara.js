@@ -77,6 +77,7 @@ function load(){
                         { 'mDataProp': 'atensi' },
                         { 'mDataProp': 'p21' },
                         { 'mDataProp': 'sp3' },
+                        { 'mDataProp': 'status' },
                         { 'mDataProp': 'id' }
                     ],
                     order: [[0, 'ASC']],
@@ -203,7 +204,30 @@ function load(){
                         {
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
+                                    let el = ''
+                                    if(row.status == 1){
+                                        el += `<span class="badge badge-pill badge-soft-success font-size-11">Selesai</span>`
+                                    }else{
+                                        el += `<span class="badge badge-pill badge-soft-dark font-size-11">Belum Selesai</span>`
+                                    }
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 16 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let selesai = ''
+                                    if(row.status != 1){
+                                        selesai =  `<button type="button" class="btn btn-success" onclick="selesaikan(${row.id})"><i class="bx bx-check fs-4"></i></button>`
+                                    }
+
                                     let el = `<div class="btn-group" role="group" aria-label="Basic example">
+                                                ${selesai}
                                                 <button type="button" class="btn btn-warning" onclick="editperkara(${row.id})"><i class="bx bx-edit fs-4"></i></button>
                                                 <button type="button" class="btn btn-danger" onclick="deleteperkara(${row.id})"><i class="bx bx-trash fs-4"></i></button>
                                             </div>`
@@ -212,7 +236,7 @@ function load(){
                                 return data;
                             },
                             
-                            aTargets: [ 16 ]
+                            aTargets: [ 17 ]
                         },
                     ],
                     // fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
@@ -396,4 +420,37 @@ function lihatkronologis(params, text) {
     $('#text-nya').html(text)
     $('#krono').html(params)
     $('#modal-kronologis').modal('show')
+}
+
+function selesaikan(id) {
+    Swal.fire({
+        title: '',
+        text: "Apakah Laporan Ini Telah Selesai ?",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'selesaiperkara',
+                data : {
+                    id : id
+                },
+                success: function(result){
+                    load()
+                }
+            })
+          Swal.fire(
+            'Berhasil!',
+            'Laporan Telah Selesai',
+            'success'
+          )
+        }
+      })
+
 }

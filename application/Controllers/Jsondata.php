@@ -457,4 +457,29 @@ class Jsondata extends \CodeIgniter\Controller
 			die($e->getMessage());
 		}
 	}
+
+	public function selesaiperkara(){
+		try {
+			$request  = $this->request;
+			$model 	  = new \App\Models\DataModel();
+
+			$data = [];
+			$data['status']			= 1;
+
+			$res = $model->updateperkara($request->getVar('id'), $data);
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+
+	}
 }
