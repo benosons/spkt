@@ -88,7 +88,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += '<button class="btn btn-warning" onclick="lihatkronologis(`'+data+'`, `Pelapor`)">Lihat</button>'
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}', 'Pelapor')">Lihat</button>`
 
                                     return  el
                                 }
@@ -101,8 +101,8 @@ function load(){
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
                                     let el = ''
-
-                                    el += '<button class="btn btn-warning" onclick="lihatkronologis(`'+data+'`, `Kronologis`)">Lihat</button>'
+                                    
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Kronologis')">Lihat</button>`
 
                                     return  el
                                 }
@@ -417,9 +417,20 @@ function deleteperkara(id) {
 
 function lihatkronologis(params, text) {
     
-    $('#text-nya').html(text)
-    $('#krono').html(params)
-    $('#modal-kronologis').modal('show')
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: 'getkronologis',
+        data : {
+            id : params
+        },
+        success: function(result){
+            $('#text-nya').html(text)
+            $('#krono').html(result.data[0].kronologis)
+            $('#modal-kronologis').modal('show')
+        }
+    })
+    
 }
 
 function selesaikan(id) {
