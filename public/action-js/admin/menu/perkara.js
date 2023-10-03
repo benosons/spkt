@@ -88,7 +88,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${data}', 'Pelapor')">Lihat</button>`
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Pelapor')">Lihat</button>`
 
                                     return  el
                                 }
@@ -425,9 +425,18 @@ function lihatkronologis(params, text) {
             id : params
         },
         success: function(result){
-            $('#text-nya').html(text)
-            $('#krono').html(result.data[0].kronologis)
-            $('#modal-kronologis').modal('show')
+            
+            if(text == 'Kronologis'){
+                $('#text-nya').html(text)
+                $('#krono').html(result.data[0].kronologis)
+                $('#modal-kronologis').modal('show')
+            }
+
+            if(text == 'Pelapor'){
+                $('#text-nya').html(text)
+                $('#krono').html(result.data[0].pelapor)
+                $('#modal-kronologis').modal('show')
+            }
         }
     })
     
