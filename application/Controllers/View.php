@@ -153,4 +153,15 @@ class View extends \CodeIgniter\Controller
 		}
 	}
 
+	public function tahanan()
+	{
+		if ($this->logged) {
+			helper('form');
+			$this->data['script'] = $this->data['baseURL'] . '/action-js/admin/menu/tahanan.js';
+			return \Twig::instance()->display('admin/menu/tahanan.html', $this->data);
+		} else {
+			return redirect('login');
+		}
+	}
+
 }

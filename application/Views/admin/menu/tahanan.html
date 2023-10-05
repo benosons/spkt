@@ -1,0 +1,124 @@
+{% extends "admin/layout.html" %} {% block content %}
+<style>
+    .img-fluid img {
+        filter: blur(3px);
+    }
+</style>
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18"><i class="bx bx-book-bookmark"></i> Data Kontrol Tahanan </h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Kontrol Tahanan</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-tambah"><i class="bx bx-plus"></i> Tambah Data Tahanan</button>
+                                        <button type="button" class="btn btn-success w-xs waves-effect waves-light" onclick="downloadexcel()"><i class="bx bx-file"></i> Download Excel</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </h4>
+                        
+                        <div class="table-responsive">
+                            <table id="datatahanan" class="table table-bordered">
+                                <thead class="table-light">
+                                <tr>
+                                    <th>No LP</th>
+                                    <th>Nama Tahanan</th>
+                                    <th>SP HAN</th>
+                                    <th>HABIS</th>
+                                    <th>JANG HAN</th>
+                                    <th>PERPANJANGAN</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-hidden="true" id="modal-tambah" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Data Tahanan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-perkara">
+                            <input type="hidden" id="id_tahanan">
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Nomor LP</label>
+                                <input type="text" class="form-control" id="no_lp" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Nama Tahanan</label>
+                                <input type="text" class="form-control" id="nama_tahanan" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Nomor SP.HAN</label>
+                                <input type="text" class="form-control" id="sp_han" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Tanggal SP.HAN</label>
+                                <input type="date" class="form-control" id="habis" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Perpanjangan</label>
+                                <input type="date" class="form-control" id="jang_han" placeholder="">
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <div class="">
+                            <button type="submit" class="btn btn-primary w-md" onclick="addtahanan()"><i class="bx bx-check fs-4"></i> Simpan Data</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-hidden="true" id="modal-kronologis">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="text-nya"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span id="krono"></span>
+                        
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+    </div> <!-- container-fluid -->
+</div>
+
+{% endblock %}

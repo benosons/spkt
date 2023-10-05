@@ -67,10 +67,26 @@ class DataModel extends Model{
       return true;
     }
 
+    public function updatetahanan($id, $data)
+    {
+      $builder = $this->db->table('data_tahanan');
+      $query   = $builder->where('id', $id);
+      $query->update($data);
+      // echo $this->db->getLastQuery();
+
+      return true;
+    }
+
     
     public function deleteperkara($id = null)
     {
         $res = $this->db->table('data_perkara')->where('id', $id)->delete();
+        return  $res;
+    }
+    
+    public function deletetahanan($id = null)
+    {
+        $res = $this->db->table('data_tahanan')->where('id', $id)->delete();
         return  $res;
     }
 
@@ -81,6 +97,19 @@ class DataModel extends Model{
             $builder->where(['STATUS' => 1]);
         }else{
             $builder->where("(STATUS != '1' or STATUS is null)");
+        }
+        $query   = $builder->get();
+        // echo $this->db->getLastQuery();die;
+
+        return  $query->getResult();
+    }
+
+    
+    public function getTahanan($id = null)
+    {
+        $builder = $this->db->table('data_tahanan');
+        if($id){
+            $builder->where(['id' => $id]);
         }
         $query   = $builder->get();
         // echo $this->db->getLastQuery();die;

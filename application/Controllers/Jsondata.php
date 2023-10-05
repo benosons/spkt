@@ -423,6 +423,44 @@ class Jsondata extends \CodeIgniter\Controller
 			die($e->getMessage());
 		}
 	}
+	
+	public function loadtahananbyid()
+	{
+		try
+		{
+				$request  	= $this->request;
+				$id		 	= $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				$model 	  = new \App\Models\DataModel();
+
+				$fulldata = [];
+				$data = $model->getTahanan($id);
+				
+				if($data){
+					$response = [
+						'status'   => 'sukses',
+						'code'     => '1',
+						'data' 	   => $data
+					];
+				}else{
+					$response = [
+						'status'   => 'gagal',
+						'code'     => '0',
+						'data'     => 'tidak ada data',
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
 		
 	public function deleteperkara()
@@ -438,6 +476,44 @@ class Jsondata extends \CodeIgniter\Controller
 
 				$fulldata = [];
 				$data = $model->deleteperkara($id);
+				
+				if($data){
+					$response = [
+						'status'   => 'sukses',
+						'code'     => '1',
+						'data' 	   => $data
+					];
+				}else{
+					$response = [
+						'status'   => 'gagal',
+						'code'     => '0',
+						'data'     => 'tidak ada data',
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+		
+	public function deletetahanan()
+	{
+		try
+		{
+				$request  	= $this->request;
+				$id		 	= $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				$model 	  = new \App\Models\DataModel();
+
+				$fulldata = [];
+				$data = $model->deletetahanan($id);
 				
 				if($data){
 					$response = [
@@ -572,5 +648,85 @@ class Jsondata extends \CodeIgniter\Controller
 		{
 			die($e->getMessage());
 		}
+	}
+
+	public function loadtahanan()
+	{
+		try
+		{
+				$request  	= $this->request;
+				$id		 	= $request->getVar('id');
+				$role 		= $this->data['role'];
+				$userid		= $this->data['userid'];
+
+				$model 	  = new \App\Models\DataModel();
+				
+				$fulldata = [];
+				$data = $model->getTahanan('');
+				
+				if($data){
+					$response = [
+						'status'   => 'sukses',
+						'code'     => '1',
+						'data' 	   => $data
+					];
+				}else{
+					$response = [
+						'status'   => 'gagal',
+						'code'     => '0',
+						'data'     => 'tidak ada data',
+					];
+				}
+
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit;
+			}
+		catch (\Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function submittahanan(){
+		try {
+			$request  = $this->request;
+			$model 	  = new \App\Models\DataModel();
+
+			$data = [];
+
+			$data['no_lp']			= $request->getVar('no_lp');
+			$data['nama_tahanan']	= $request->getVar('nama_tahanan');
+			$data['sp_han']			= $request->getVar('sp_han');
+			$data['habis']			= $request->getVar('habis');
+			$data['jang_han']		= $request->getVar('jang_han');
+			$data['perpanjangan']	= $request->getVar('perpanjangan');
+				
+			$data['create_date'] 	= $this->now;
+			$data['update_date'] 	= $this->now;
+			$data['create_by'] 		= $this->data['userid'];
+			$data['update_by'] 		= $this->data['userid'];
+			
+			if($request->getVar('id')){
+				$res = $model->updatetahanan($request->getVar('id'), $data);
+			}else{
+				$res = $model->saveData('data_tahanan', $data);
+				$id  = $model->insertID();
+			}
+
+			$response = [
+					'status'   => 'sukses',
+					'code'     => '0',
+					'data' 	   => 'terkirim'
+			];
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit;
+			}
+			catch (\Exception $e)
+			{
+				die($e->getMessage());
+			}
+
 	}
 }
