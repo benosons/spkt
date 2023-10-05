@@ -88,7 +88,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
 
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Pelapor')">Lihat</button>`
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Pelapor')">Lihat</button><span hidden>${data}</span>`
 
                                     return  el
                                 }
@@ -102,7 +102,7 @@ function load(){
                                 if(type == 'display'){
                                     let el = ''
                                     
-                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Kronologis')">Lihat</button>`
+                                    el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Kronologis')">Lihat</button><span hidden>${data}</span>`
 
                                     return  el
                                 }
