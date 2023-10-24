@@ -108,8 +108,9 @@ function addtahanan() {
     formData.append('no_lp', $('#no_lp').val())
     formData.append('nama_tahanan', $('#nama_tahanan').val())
     formData.append('sp_han', $('#sp_han').val())
-    formData.append('habis', $('#habis').val())
-    formData.append('jang_han', $('#jang_han').val())
+    formData.append('tgl_sp_han', $('#tgl_sp_han').val())
+    formData.append('habis', 1)
+    formData.append('tgl_perpanjangan', $('#tgl_perpanjangan').val())
     formData.append('perpanjangan', 1)
 
     $.ajax({

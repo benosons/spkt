@@ -302,7 +302,7 @@ class Jsondata extends \CodeIgniter\Controller
 			$data['tgllaporan'] 	= $request->getVar('tgllaporan');
 			$data['pelapor'] 		= $request->getVar('pelapor');
 			$data['tkp'] 			= $request->getVar('tkp');
-			$data['kronologis'] 	= $request->getVar('kronologis');
+			$data['kronologis'] 	= str_replace("'","", $request->getVar('kronologis'));
 			$data['terlapor'] 		= $request->getVar('terlapor');
 			$data['pasal'] 			= $request->getVar('pasal');
 			$data['penyidik'] 		= $request->getVar('penyidik');

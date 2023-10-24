@@ -87,6 +87,24 @@ function load(){
                             mRender: function ( data, type, row ) {
                                 if(type == 'display'){
                                     let el = ''
+                                    var date = new Date(data);
+                                    var y = date.getFullYear(),
+                                    m = date.getMonth(), 
+                                    d = date.getDate()
+
+                                    el += d + '-' + m + '-' + y
+
+                                    return  el
+                                }
+                                return data;
+                            },
+                            
+                            aTargets: [ 1 ]
+                        },
+                        {
+                            mRender: function ( data, type, row ) {
+                                if(type == 'display'){
+                                    let el = ''
 
                                     el += `<button class="btn btn-warning" onclick="lihatkronologis('${row.id}', 'Pelapor')">Lihat</button><span hidden>${data}</span>`
 
